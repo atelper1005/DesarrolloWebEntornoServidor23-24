@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejemplo 01 - Tema 2</title>
+    <title>Ejemplo 05 - Tema 2</title>
 </head>
 
 <body>
@@ -17,7 +17,7 @@
 
         echo "Hola Mundo";
         echo "<br>" ;
-        echo "Soy $usuario";
+        echo "Soy $modelUsuario";
 
         ?>
     </h4>

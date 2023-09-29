@@ -9,7 +9,7 @@
 
 <body>
     <center>
-        <h1><?php La Inflación ?></h1>
+        <h1>La Inflación</h1>
     </center>
 
         <p>

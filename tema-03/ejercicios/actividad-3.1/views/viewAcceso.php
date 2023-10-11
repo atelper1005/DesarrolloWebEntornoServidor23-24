@@ -12,27 +12,50 @@
     <div class="container">
         <!-- Cabecera Documento -->
         <header class="pb-3 mb-4 border-bottom">
-            <i class="bi bi-calculator"></i>
-            <span class="fs-4">Calculadora Conversor Decimal</span>
+            <i class="bi bi-app-indicator"></i>
+            <span class="fs-4">Actividad 3.1 - Formulario Registro</span>
         </header>
 
-        <legend>Resultados de Conversión</legend>
+        <legend>Acceso</legend>
         <form>
+            <!-- menu -->
+            <ul class="nav">
+                <?php if($perfil == 'admin' or $perfil == 'editor'): ?>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Nuevo</a>
+                </li>
+                <?php endif; ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                </li>
+            </ul>
 
             <!-- Valores -->
             <table class="table table-hover">
-  <tbody>
-    <tr>
-      <th scope="col" colspan="2">Decimal: </th>
-      <td scope="row"><?= $valor1 ?></td>
-    </tr>
-    <tr>
-        <th scope="col" colspan="2"><?= $etiqueta ?></th>
-        <td scope="row"><?= $resultado ?></td>
-    </tr>
-   
-  </tbody>
-</table>
+                <tbody>
+                    <tr>
+                        <th scope="col" colspan="2">Decimal: </th>
+                        <td scope="row">
+                            <?= $valor1 ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col" colspan="2">
+                            <?= $etiqueta ?>
+                        </th>
+                        <td scope="row">
+                            <?= $resultado ?>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
 
 
             <!-- Botones de acción -->

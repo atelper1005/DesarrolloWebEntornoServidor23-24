@@ -25,15 +25,21 @@
                     <a class="nav-link active" aria-current="page" href="#">Nuevo</a>
                 </li>
                 <?php endif; ?>
+                <?php if($perfil == 'admin' or $perfil == 'editor'): ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="#">Actualizar</a>
                 </li>
+                <?php endif; ?>
+                <?php if($perfil == 'admin' or $perfil == 'editor' or $perfil == 'usuario'): ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="#">Consultar</a>
                 </li>
+                <?php endif; ?>
+                <?php if($perfil == 'admin'): ?>
                 <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    <a class="nav-link disabled" href="#">Eliminar</a>
                 </li>
+                <?php endif; ?>
             </ul>
 
             <!-- Valores -->

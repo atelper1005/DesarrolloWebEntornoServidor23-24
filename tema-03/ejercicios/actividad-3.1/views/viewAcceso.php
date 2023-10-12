@@ -43,23 +43,15 @@
             </ul>
 
             <!-- Valores -->
-            <table class="table table-hover">
+            <table class="table table-primary">
                 <tbody>
-                    <tr>
-                        <th scope="col" colspan="2">Decimal: </th>
+                    <tr class="table-primary">
+                        <th scope="col" colspan="2">Campo: </th>
+                        <th scope="col" colspan="2">Valor: </th>
                         <td scope="row">
                             <?= $valor1 ?>
                         </td>
                     </tr>
-                    <tr>
-                        <th scope="col" colspan="2">
-                            <?= $etiqueta ?>
-                        </th>
-                        <td scope="row">
-                            <?= $resultado ?>
-                        </td>
-                    </tr>
-
                 </tbody>
             </table>
 

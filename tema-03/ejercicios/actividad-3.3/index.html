@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    1
+    <p><table>
+        <?php
+        $num = 1;
+        while ($num <= 100) {
+            if ($num % 10 == 1) {
+                echo "<tr>";
+            }
+            echo "<td>$num</td>";
+            if ($num % 10 == 0) {
+                echo "</tr>";
+            }
+            $num++;
+        }
+        ?>
+        </table>
+    </p>
+
+    2
+    <p>
+        <table>
+            <tr>
+                <th></th>
+            <?php
+            for ($i = 1; $i <= 10; $i++) {
+                echo "<th>$i</th>";
+            }
+            ?>
+            </tr>
+            <?php
+            for ($i = 1; $i <= 10; $i++) {
+                echo "<tr>";
+                echo "<th>$i</th>";
+                for ($j = 1; $j <= 10; $j++) {
+                    echo "<td>" . ($i * $j) . "</td>";
+                }
+                echo "</tr>";
+            }
+            ?>
+            </table>
+
+            3
+            <p>
+                <form>
+                    <?php
+                    $days = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"];
+                    for ($i = 0; $i < count($days); $i++) {
+                        for ($j = 0; $j <= $i; $j++) {
+                            echo "<input type='text' name='day' value='" . $days[$j] . "'><br>";
+                        }
+                    }
+                    ?>
+                    </form>
+                    
+            </p>
+            
+    </p>
+    
+</body>
+</html>

@@ -20,25 +20,25 @@
         <form>
             <!-- menu -->
             <ul class="nav">
-                <?php if($perfil == 'admin' or $perfil == 'editor'): ?>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Nuevo</a>
-                </li>
+                <?php if ($perfil == 'admin' or $perfil == 'editor'): ?>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Nuevo</a>
+                    </li>
                 <?php endif; ?>
-                <?php if($perfil == 'admin' or $perfil == 'editor'): ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Actualizar</a>
-                </li>
+                <?php if ($perfil == 'admin' or $perfil == 'editor'): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Actualizar</a>
+                    </li>
                 <?php endif; ?>
-                <?php if($perfil == 'admin' or $perfil == 'editor' or $perfil == 'usuario'): ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Consultar</a>
-                </li>
+                <?php if ($perfil == 'admin' or $perfil == 'editor' or $perfil == 'usuario'): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Consultar</a>
+                    </li>
                 <?php endif; ?>
-                <?php if($perfil == 'admin'): ?>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Eliminar</a>
-                </li>
+                <?php if ($perfil == 'admin'): ?>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Eliminar</a>
+                    </li>
                 <?php endif; ?>
             </ul>
 
@@ -46,10 +46,30 @@
             <table class="table table-primary">
                 <tbody>
                     <tr class="table-primary">
-                        <th scope="col" colspan="2">Campo: </th>
-                        <th scope="col" colspan="2">Valor: </th>
+                        <th scope="col">Campo: </th>
+                        <th scope="col">Valor: </th>
+                    </tr>
+                    <tr class="table-primary">
+                        <td scope="row">Usuario</td>
                         <td scope="row">
-                            <?= $valor1 ?>
+                            <?= $user ?>
+                        </td>
+                    <tr class="table-primary">
+                        <td scope="row">Email</td>
+                        <td scope="row">
+                            <?= $email ?>
+                        </td>
+                    </tr>
+                    <tr class="table-primary">
+                        <td scope="row">Contraseña</td>
+                        <td scope="row">
+                            <?= $password ?>
+                        </td>
+                    </tr>
+                    <tr class="table-primary">
+                        <td scope="row">Perfil</td>
+                        <td scope="row">
+                            <?= $perfil ?>
                         </td>
                     </tr>
                 </tbody>

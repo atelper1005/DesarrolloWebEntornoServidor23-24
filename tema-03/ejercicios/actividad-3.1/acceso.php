@@ -8,7 +8,7 @@
     */
 
     # Model
-    include "model/modelAcceso.php";
+    include "models/modelAcceso.php";
 
     # Vista
     //Carga la vista con el formulario registro

@@ -31,19 +31,19 @@
             salida: 
                     - tabla actualizada
     
-    
-
-     function eliminar($tabla = [], $id) {
-        //devuelve array con valores de la columna id
-        $lista_id = array_column($tabla, 'id');
-        
-        //busco id del libro que deseo eliminar en dicha columna
-        $elemento = array_search($id, $lista_id, false);
-
-        //eliminar elemento de la tabla
-        unset($tabla[$elemento]);
-
-        return $tabla;
-     }
     */
+
+    // function eliminar($tabla = [], $id) {
+    //     //devuelve array con valores de la columna id
+    //     $lista_id = array_column($tabla, 'id');
+        
+    //     //busco id del libro que deseo eliminar en dicha columna
+    //     $elemento = array_search($id, $lista_id, false);
+
+    //     //eliminar elemento de la tabla
+    //     unset($tabla[$elemento]);
+
+    //     return $tabla;
+    // }
+
 ?>

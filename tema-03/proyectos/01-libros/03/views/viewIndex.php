@@ -18,6 +18,10 @@
         </header>
 
         <legend>Tabla Libros</legend>
+
+        <!-- Menu Principal -->
+            <?php include 'views/partials/menu_prin.php' ?>
+
         <table class="table">
             <!-- Encabezado de tabla -->
             <thead>

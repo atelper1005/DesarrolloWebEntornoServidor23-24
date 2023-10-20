@@ -44,9 +44,13 @@
                                 <?= $campo ?>
                             </td>
                         <?php endforeach; ?>
+                        
+                        <!-- botones -->
                     <td>
-                        <a href="eliminar.php?id=<?=$libro['id']?>">
+                        <a href="eliminar.php?id=<?=  $libro['id'] ?>">
                         <i class="bi bi-trash-fill"></i>
+                        <a href="editar.php?id=<?= $libro['id'] ?>">
+                        <i class="bi bi-pencil-square"></i>
                     </td>
                     </tr>
                 <?php endforeach; ?>

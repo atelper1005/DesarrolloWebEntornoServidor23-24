@@ -11,10 +11,11 @@
     include 'libs/crud_funciones.php';
 
     #Modelo
-    include 'models/modelindex.php';
+    include 'models/modelIndex.php';
+    include 'models/model.eliminar.php';
 
     #Vista
     //Cargo la vista
-    include 'views/viewIndex.php';
+    include "views/viewIndex.php";
     
 ?>

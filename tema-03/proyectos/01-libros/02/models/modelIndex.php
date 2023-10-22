@@ -8,7 +8,7 @@
 
     $libros = [
         [
-            'Id' => 1,
+            'id' => 1,
             'titulo' => 'Los Señores del Tiempo',
             'autor' => 'García Sénz de Urturi',
             'genero' => 'Novela',
@@ -16,7 +16,7 @@
         ],
 
         [
-            'Id' => 2,
+            'id' => 2,
             'titulo' => 'El Rey recibe',
             'autor' => 'Eduardo Mendoza',
             'genero' => 'Novela',
@@ -24,7 +24,7 @@
         ],
 
         [
-            'Id' => 3,
+            'id' => 3,
             'titulo' => 'Diario de una mujer',
             'autor' => 'Eduardo Mendoza',
             'genero' => 'Juvenil',
@@ -32,7 +32,7 @@
         ],
 
         [
-            'Id' => 4,
+            'id' => 4,
             'titulo' => 'El Quijote de la Mancha',
             'autor' => 'Miguel de Cervantes',
             'genero' => 'Novela',
@@ -40,7 +40,7 @@
         ],
 
         [
-            'Id' => 5,
+            'id' => 5,
             'titulo' => 'Inferno',
             'autor' => 'Dan Brown',
             'genero' => 'Suspense',

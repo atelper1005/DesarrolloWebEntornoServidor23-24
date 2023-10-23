@@ -51,6 +51,8 @@
                         <i class="bi bi-trash-fill"></i>
                         <a href="editar.php?id=<?= $libro['id'] ?>">
                         <i class="bi bi-pencil-square"></i>
+                        <a href="mostrar.php?id=<?= $libro['id'] ?>">
+                        <i class="bi bi-display"></i>
                     </td>
                     </tr>
                 <?php endforeach; ?>

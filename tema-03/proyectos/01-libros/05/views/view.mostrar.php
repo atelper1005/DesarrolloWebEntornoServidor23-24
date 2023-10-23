@@ -17,32 +17,30 @@
             <i class="bi bi-book"></i>
         </header>
 
-        <legend>Formulario Nuevo Libro</legend>
+        <legend>Formulario Mostrar Libro</legend>
 
-        <form>
+        <form action="mostrar.php?id=<?= $id ?>" method="POST">
         <div class="mb-3">
                 <label for="id" class="form-label">Id</label>
-                <input type="text" class="form-control" name="id">
+                <input type="text" class="form-control" name="id" value="<?= $libro['id'] ?>" readonly>
             </div>
             <div class="mb-3">
                 <label for="titulo" class="form-label">Título</label>
-                <input type="text" class="form-control" name="titulo">
+                <input type="text" class="form-control" name="titulo" value="<?= $libro['titulo'] ?>" readonly>
             </div>
             <div class="mb-3">
                 <label for="autor" class="form-label">Autor</label>
-                <input type="text" class="form-control" name="autor">
+                <input type="text" class="form-control" name="autor" value="<?= $libro['autor'] ?>" readonly>
             </div>
             <div class="mb-3">
                 <label for="genero" class="form-label">Género</label>
-                <input type="text" class="form-control" name="genero">
+                <input type="text" class="form-control" name="genero" value="<?= $libro['genero'] ?>" readonly>
             </div>
             <div class="mb-3">
                 <label for="precio" class="form-label">Precio</label>
-                <input type="text" class="form-control" name="precio">
+                <input type="text" class="form-control" name="precio" step="0.01" value="<?= $libro['precio'] ?>" readonly>
             </div>
-            <a class="btn btn-secondary" href="index.php" role="button">Cancelar</a>
-            <button type="reset" class="btn btn-danger">Borrar</button>
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <a class="btn btn-secondary" href="index.php" role="button">Volver</a>
         </form>
 
         <!-- Pie del codumento -->

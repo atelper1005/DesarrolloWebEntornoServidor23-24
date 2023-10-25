@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es">
 
@@ -53,4 +54,61 @@
     <?php include 'views/layouts/javascript.html' ?>
 </body>
 
+=======
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <?php include 'views/layouts/head.html' ?>
+    <title>Proyecto 3.1 - Tabla de libros</title>
+</head>
+
+<body>
+    <!-- Capa principal -->
+    <div class="container">
+        <!-- Cabecera Documento -->
+        <header class="pb-3 mb-4 border-bottom">
+            <i class="bi bi-book"></i>
+            <span class="fs-4">Proyecto 3.1 - Tabla de libros
+            </span>
+            <i class="bi bi-book"></i>
+        </header>
+
+        <legend>Formulario Mostrar Libro</legend>
+
+        <form action="mostrar.php?id=<?= $id ?>" method="POST">
+        <div class="mb-3">
+                <label for="id" class="form-label">Id</label>
+                <input type="text" class="form-control" name="id" value="<?= $libro['id'] ?>" disabled>
+            </div>
+            <div class="mb-3">
+                <label for="titulo" class="form-label">Título</label>
+                <input type="text" class="form-control" name="titulo" value="<?= $libro['titulo'] ?>" disabled>
+            </div>
+            <div class="mb-3">
+                <label for="autor" class="form-label">Autor</label>
+                <input type="text" class="form-control" name="autor" value="<?= $libro['autor'] ?>" disabled>
+            </div>
+            <div class="mb-3">
+                <label for="genero" class="form-label">Género</label>
+                <input type="text" class="form-control" name="genero" value="<?= $libro['genero'] ?>" disabled>
+            </div>
+            <div class="mb-3">
+                <label for="precio" class="form-label">Precio</label>
+                <input type="text" class="form-control" name="precio" step="0.01" value="<?= $libro['precio'] ?>" disabled>
+            </div>
+
+            <a class="btn btn-primary" href="index.php" role="button">Volver</a>
+
+        </form>
+
+        <!-- Pie del codumento -->
+        <?php include 'views/layouts/footer.html' ?>
+    </div>
+
+    <!-- javascript bootstrap 532 -->
+    <?php include 'views/layouts/javascript.html' ?>
+</body>
+
+>>>>>>> 1b65408621ed418d8d6c174feec0dcda1c62ea70
 </html>

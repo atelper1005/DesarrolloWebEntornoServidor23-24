@@ -12,34 +12,41 @@
         <!-- Cabecera Documento -->
         <?php include 'views/partials/header.php' ?>
 
-        <legend>Formulario Nuevo Artículo</legend>
+        <legend>Formulario Editar Artículo</legend>
 
-        <form action="create.php" method="POST">
+        <form action="update.php?clave=<?= $indice ?>" method="POST">
+        <div class="mb-3">
+                <label for="id" class="form-label">Id</label>
+                <input type="text" class="form-control" name="id" value="<?= $articulo['id'] ?>">
+            </div>
             <div class="mb-3">
                 <label for="descripcion" class="form-label">Descripción</label>
-                <input type="text" class="form-control" name="descripcion">
+                <input type="text" class="form-control" name="descripcion" value="<?= $articulo['descripcion'] ?>">
             </div>
             <div class="mb-3">
                 <label for="modelo" class="form-label">Modelo</label>
-                <input type="text" class="form-control" name="modelo">
+                <input type="text" class="form-control" name="modelo" value="<?= $articulo['modelo'] ?>">
             </div>
             <!-- Categoria select -->
             <div class="mb-3">
-                <label class="form-label">Categoría</label>
+                <label for="categoria" class="form-label">Categoría</label>
                 <select class="form-select" aria-label="Default select example" name="categoria">
-                    <option selected disabled>Seleccione una opción:</option>
-                    <?php foreach($categorias as $clave => $categoria):  ?>
-                        <option value="<?= $clave ?>"><?= $categoria ?></option>
+                    <?php foreach($categorias as $clave => $categoria): ?>
+                        <option value="<?= $clave ?>"
+                            <?= ($articulo['categoria'] == $clave)? 'selected': null ?>
+                            >
+                            <?= $categoria ?>
+                        </option>
                         <?php endforeach; ?>
                 </select>
             </div>
             <div class="mb-3">
                 <label for="unidades" class="form-label">Unidades</label>
-                <input type="text" class="form-control" name="unidades">
+                <input type="text" class="form-control" name="unidades" value="<?= $articulo['unidades'] ?>">
             </div>
             <div class="mb-3">
                 <label for="precio" class="form-label">Precio</label>
-                <input type="text" class="form-control" name="precio">
+                <input type="text" class="form-control" name="precio" value="<?= $articulo['precio'] ?>">
             </div>
 
             <!-- Botones -->

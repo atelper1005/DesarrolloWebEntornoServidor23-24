@@ -11,7 +11,7 @@
     include "libs/funciones_articulos.php";
 
     #Modelo
-    include "models/model.index.php";
+    include "models/model.nuevo.php";
 
     #Vista
     //Cargo la vista

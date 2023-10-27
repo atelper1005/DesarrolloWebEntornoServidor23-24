@@ -14,33 +14,33 @@
     
     */
 
-    #Genero la tabla
-    $categorias = generar_tabla_categorias();
+    #Creamos la tabla
     $articulos = generar_tabla_articulos();
 
-    #extreaemos en variables los valores del formulario
+    #Cargamos las categorias
+    $categorias = generar_tabla_categorias();
+    
+    #Generamos la id automaticamente
+    $id = ultimoId($articulos)+1;
 
-    $id = $_POST['id'];
+    #extreaemos en variables los valores del formulario
     $descripcion = $_POST['descripcion'];
     $modelo = $_POST['modelo'];
-    $categorias = $_POST['categoria'];
+    $categoria = $_POST['categoria'];
     $unidades = $_POST['unidades'];
     $precio = $_POST['precio'];
 
     #creo un array asociativo con los detalles del nuevo elemento
-
     $articulo = [
         'id' => $id,
         'descripcion'=> $descripcion,
         'modelo'=> $modelo,
-        'categoria'=> $categorias,
+        'categoria'=> $categoria,
         'unidades'=> $unidades,
         'precio' => $precio
     ];
 
-    #Añado un nuevo elemento a la tabla
-
-    array_push($articulos, $articulo);
-    
+    #Metemos los articulos en la matriz
+    $articulos = nuevo($articulos, $articulo);
 
 ?>

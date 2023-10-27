@@ -17,6 +17,6 @@
 
     #Vista
     //Cargo la vista
-    include "views/viewIndex.php";
+    include 'views/view.index.php';
     
 ?>

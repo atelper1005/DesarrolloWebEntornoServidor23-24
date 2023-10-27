@@ -84,11 +84,82 @@
         return $articulos;
     }
 
+    function ultimoId($articulos = []){
+        // Declaramos una variable vacia
+        $ultimoId = 0;
+        foreach ($articulos as $valor) {  
+            if ($valor['id'] > $ultimoId) {
+                $ultimoId = $valor['id'];
+        }
+    }
+    return $ultimoId;
+    }
 
     function buscar_en_tabla($articulos = [], $columna, $valor) {
 
         $columna_valores = array_column($articulos, $columna);
         return array_search($valor, $columna_valores, false);
+    }
+
+
+    function nuevo ($articulos = [], $articulo) {
+        $articulos[] = $articulo;
+
+        return $articulos;
+    }
+
+    function eliminar($articulos = [], $id) {
+        $indice_eliminar = buscar_en_tabla($articulos, 'id', $id);
+
+        //comparacion estricta para distinguir el false del 0
+        if ($indice_eliminar !== false) {
+            //elimino el libro seleccionado
+            unset($articulos[$indice_eliminar]);
+
+            //reconstruyo el array
+            $articulos = array_values($articulos);
+        }
+
+        return $articulos;
+    }
+
+    function actualizar($articulos = [], $indice, $elemento) {
+        $articulos[$indice] = $elemento;
+        return $articulos;
+    }
+
+    function ordenar($articulos, $criterio) {
+
+        //Validar criterio
+        if (!in_array($criterio, array_keys($articulos[0]))) {
+        echo "ERROR! Criterio de ordenación inexistente";
+        exit();
+        }
+
+        $aux = array_column($articulos, $criterio);
+
+        // Funcion array multisort
+        array_multisort($aux, SORT_ASC, $articulos);
+
+        return $articulos;
+    }
+
+    function buscar($articulos = [], $expresion) {
+        // Creamos un array vacio donde se cargaran las filas que cumplan con la expresion
+        $aux = [];
+
+        foreach($articulos as $articulo) {
+            if(array_search($expresion, $articulo, false)) {
+            $aux[] = $articulo;
+            }
+        }
+
+        #Validar la busqueda
+        if(!empty($aux)) {
+            $articulos = $aux;
+        } 
+
+        return $aux;
     }
 
 ?>

@@ -14,7 +14,7 @@
 
         <legend>Formulario Editar Artículo</legend>
 
-        <form action="update.php?clave=<?= $indice ?>" method="POST">
+        <form action="update.php?clave=<?= $articulo ?>" method="POST">
         <div class="mb-3">
                 <label for="id" class="form-label">Id</label>
                 <input type="text" class="form-control" name="id" value="<?= $articulo['id'] ?>">

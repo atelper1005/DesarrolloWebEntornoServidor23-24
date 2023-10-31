@@ -90,7 +90,7 @@
                 'descripcion'=> 'Pantalla - Monitor LG 27GL850-B',
                 'modelo' => 'LG 27GL850-B',
                 'marca' => 3,
-                'categorias' => [2, 3, 6],
+                'categorias' => [2, 3, 5],
                 'unidades' => 30,
                 'precio' => 499.99
             ],
@@ -99,7 +99,7 @@
                 'descripcion'=> 'Impresora - Epson EcoTank ET-2720',
                 'modelo' => 'Epson EcoTank ET-2720',
                 'marca' => 4,
-                'categorias' => [4, 6],
+                'categorias' => [4, 5],
                 'unidades' => 20,
                 'precio' => 249.99
             ]
@@ -126,6 +126,7 @@
             $arrayCategorias[] = $categorias[$indice];
         }
 
+        asort($arrayCategorias);
         return $arrayCategorias;
 }   
 

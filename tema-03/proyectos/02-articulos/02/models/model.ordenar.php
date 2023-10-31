@@ -16,6 +16,9 @@ $articulos = generar_tabla_articulos();
 #Cargamos las categorias
 $categorias = generar_tabla_categorias();
 
+#Cargamos las marcas
+$marcas = generar_tabla_marcas();
+
 # Cargo el criterio de ordenación
 $criterio = $_GET['criterio'];
 

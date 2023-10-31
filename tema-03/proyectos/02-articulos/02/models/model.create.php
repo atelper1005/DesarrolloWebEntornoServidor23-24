@@ -34,17 +34,17 @@
     $precio = $_POST['precio'];
 
     #creo un array asociativo con los detalles del nuevo elemento
-    $articulo = [
+    $nuevo_articulo = [
         'id' => $id,
         'descripcion'=> $descripcion,
         'modelo'=> $modelo,
         'marca' => $marcas,
-        'categoria'=> $categoria,
+        'categoria'=> $_POST('categorias'),
         'unidades'=> $unidades,
         'precio' => $precio
     ];
 
     #Metemos los articulos en la matriz
-    $articulos = nuevo($articulos, $articulo);
+    $articulos = nuevo($articulos, $nuevo_articulo);
 
 ?>

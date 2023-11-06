@@ -1,11 +1,5 @@
 <?php
 
-    /*
-    
-
-    
-    */
-
     class Vehiculo {
         private $modelo;
         private $nombre;

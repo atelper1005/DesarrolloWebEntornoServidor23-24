@@ -163,7 +163,7 @@
         return $articulos;
     }
 
-    function ordenar($articulos, $criterio) {
+    function ordenar($articulos=[], $criterio) {
 
         //Validar criterio
         if (!in_array($criterio, array_keys($articulos[0]))) {

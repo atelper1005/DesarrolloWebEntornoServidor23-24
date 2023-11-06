@@ -15,6 +15,9 @@
     #Cargamos las categorias
     $categorias = generar_tabla_categorias();
 
+    #Cargamos la tabla marcas
+    $marcas = generar_tabla_marcas();
+
     # Cargo la expresion
     $expresion = $_GET['expresion'];
 

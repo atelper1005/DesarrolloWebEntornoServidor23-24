@@ -18,6 +18,7 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="ordenar.php?criterio=descripcion">Descripción</a></li>
                         <li><a class="dropdown-item" href="ordenar.php?criterio=modelo">Modelo</a></li>
+                        <li><a class="dropdown-item" href="ordenar.php?criterio=marca">Marca</a></li>
                         <li><a class="dropdown-item" href="ordenar.php?criterio=categoria">Categoría</a></li>
                         <li><a class="dropdown-item" href="ordenar.php?criterio=unidades">Unidades</a></li>
                         <li><a class="dropdown-item" href="ordenar.php?criterio=precio">Precio</a></li>

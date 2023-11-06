@@ -10,7 +10,7 @@ $coche_1 = new Deportivo(
     0
 );
 
-$coche_2 = new Vehiculo();
+
 
 var_dump($coche_1);
 var_dump($coche_2);

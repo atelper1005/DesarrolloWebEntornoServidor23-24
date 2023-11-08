@@ -7,8 +7,9 @@
         
     */
 
-    #Libreria
-    include 'libs/funciones_articulos.php';
+    #Clases
+    include 'class/class.articulo.php';
+    include 'class/class.arrayArticulo.php';
 
     #Modelo
     include 'models/model.index.php';

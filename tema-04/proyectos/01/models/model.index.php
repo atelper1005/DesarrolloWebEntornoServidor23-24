@@ -4,15 +4,22 @@
     
         Modelo: model.index.php
 
-        Descripción: Carga las tablas generadas
+        Descripción: Genera un array de objetos de articulos
     
     */
 
     setlocale(LC_MONETARY, "es_ES");
 
-    $categorias = generar_tabla_categorias();
+    #Cargamos los arrays a partir de los metodos estaticos de la clase ArrayArticulos
+    $categorias = ArrayArticulos::getCategorias();
+    $marcas = ArrayArticulos::getMarcas();
 
-    $articulos = generar_tabla_articulos();
+    #Creamos un objeto de la clase ArrayArticulos
+    $articulos = new ArrayArticulos();
 
-    $marcas = generar_tabla_marcas();
+    #Cargo los datos
+    $articulos->getDatos();
+
+    //print_r($articulos);
+    //exit;
 ?>

@@ -3,7 +3,7 @@
 
 <head>
     <?php include 'views/layouts/head.html' ?>
-    <title>Proyecto 3.2 - Gestión de Tabla Artículos</title>
+    <title>Proyecto 4.2 - Gestión de Tabla Artículos</title>
 </head>
 
 <body>

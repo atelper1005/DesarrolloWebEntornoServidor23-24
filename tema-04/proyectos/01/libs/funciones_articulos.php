@@ -128,7 +128,7 @@
 
         asort($arrayCategorias);
         return $arrayCategorias;
-}   
+    }   
 
     function buscar_en_tabla($articulos = [], $columna, $valor) {
 

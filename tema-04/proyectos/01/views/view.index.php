@@ -3,7 +3,7 @@
 
 <head>
     <?php include 'views/layouts/head.html' ?>
-    <title>Proyecto 3.2 - Gestión Tabla Artículos</title>
+    <title>Proyecto 4.2 - Gestión Artículos</title>
 </head>
 
 <body>
@@ -25,6 +25,7 @@
                     <th>Descripción</th>
                     <th>Modelo</th>
                     <th>Marca</th>
+                    <th>Categorías</th>
                     <th class="text-end">Stock</th>
                     <th class="text-end">Precio</th>
                     <th>Acciones</th>
@@ -32,29 +33,29 @@
             </thead>
             <!-- Cuerpo de tabla -->
             <tbody>
-                <?php foreach ($articulos as $articulo): ?>
+                <?php foreach ($articulos->getTabla() as $indice=>$articulo): ?>
                     <tr>
                         <!-- Formatos distintos a cada campo de la tabla -->
-                        <td><?= $articulo['id'] ?></td>
-                        <td><?= $articulo['descripcion'] ?></td>
-                        <td><?= $articulo['modelo'] ?></td>
-                        <td><?= $marcas[$articulo['marca']] ?></td>
-                        <td><?= implode(', ', mostrarCategorias($categorias, $articulo['categorias'])) ?></td>
-                        <td class="text-end"><?= $articulo['unidades'] ?></td>
-                        <td class="text-end"><?= number_format($articulo['precio'], 2, ',', '.') ?></td>
+                        <td><?= $articulo->getId() ?></td>
+                        <td><?= $articulo->getDescripcion() ?></td>
+                        <td><?= $articulo->getModelo() ?></td>
+                        <td><?= $marcas[$articulo->getMarca()] ?></td>
+                        <td><?= implode(', ', ArrayArticulos::mostrarCategorias($categorias, $articulo->getCategorias())) ?></td>
+                        <td class="text-end"><?= $articulo->getUnidades() ?></td>
+                        <td class="text-end"><?= number_format($articulo->getPrecio(), 2, ',', '.') ?></td>
                         
                         <!-- botones -->
                     <td>
                         <!-- Botón Eliminar -->
-                        <a href="eliminar.php?id=<?=  $articulo['id'] ?>">
+                        <a href="eliminar.php?indice=<?=  $indice ?>">
                         <i class="bi bi-trash-fill"></i>
 
                         <!-- Botón Editar -->
-                        <a href="editar.php?id=<?= $articulo['id'] ?>">
+                        <a href="editar.php?indice=<?= $indice ?>">
                         <i class="bi bi-pencil-square"></i>
 
                         <!-- Botón Mostrar -->
-                        <a href="mostrar.php?id=<?= $articulo['id'] ?>">
+                        <a href="mostrar.php?indice=<?= $indice ?>">
                         <i class="bi bi-display"></i>
                     </td>
                     </tr>
@@ -64,7 +65,7 @@
             <tfoot>
                 <tr>
                     <td colspan="5">Nº Artículos
-                        <?= count($articulos) ?>
+                        <?= count($articulos->getTabla()) ?>
                     </td>
                 </tr>
             </tfoot>

@@ -99,7 +99,7 @@
 
             #Alumno 3
             $alumno = new Alumno( 
-                2, 
+                3, 
                 'Pablo', 
                 'Mateos Palas', 
                 'pmatpal0105@g.educaand.es', 
@@ -111,15 +111,14 @@
             $this->tabla[] = $alumno;
 
             #Alumno 4
-            $alumno = new Alumno(
-                4,
-                'PC sobremesa - HP 290 APU AMD Dual-core A6',
-                'HP 290-a0002ns',
-                1,
-                [1, 2, 5],
-                60,
-                1595.95
-            );
+            $alumno = new Alumno( 
+                4, 
+                'Juan Maria', 
+                'Mateos Ponce', 
+                'jmmateos@gmail.com', 
+                '20/10/2004', 
+                4, 
+                [6, 7, 8] );
 
             #Añadir articulo a la tabla
             $this->tabla[] = $alumno;

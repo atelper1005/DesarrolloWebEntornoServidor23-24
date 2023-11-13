@@ -9,14 +9,19 @@
     
     */
 
-    #Genero la tabla
-    $articulos = generar_tabla_articulos();
-
-    #Cargamos las categorias
-    $categorias = generar_tabla_categorias();
-
-    $id = $_GET['id'];
-
-    //invocamos la funcion eliminar
-    $articulos = eliminar($articulos, $id);
+     // cargamos las tablas
+     $categorias = ArrayArticulos::getCategorias();
+     $marcas = ArrayArticulos::getMarcas();
+     $articulos = new ArrayArticulos();
+     $articulos->getDatos();
+ 
+     // Extraemos el id a través del método get
+     $id = $_GET['indice'];
+ 
+ 
+     // invocamos a la función eliminar
+     $articulos->delete($id);
+ 
+     // Notificacion
+     $notificacion="Artículo eliminado con éxito";
 ?>

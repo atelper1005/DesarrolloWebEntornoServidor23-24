@@ -8,7 +8,8 @@
     */
 
     #Libreria
-    include 'libs/funciones_articulos.php';
+    include "class/class.articulo.php";
+    include "class/class.arrayArticulo.php";
 
     #Modelo
     include 'models/model.eliminar.php';

@@ -10,23 +10,20 @@
 
 */
 
-#Genero la tabla
-$articulos = generar_tabla_articulos();
+// Cargar las categorías y crear un Array de Artículos
+$categorias = ArrayArticulos::getCategorias();
+$marcas = ArrayArticulos::getMarcas();
 
-#Cargamos las categorias
-$categorias = generar_tabla_categorias();
+$articulos = new ArrayArticulos();
+$articulos->getDatos();
 
-#Cargamos las marcas
-$marcas = generar_tabla_marcas();
-
-# Cargo el criterio de ordenación
+// Cargar el criterio de ordenación
 $criterio = $_GET['criterio'];
 
-//Validar criterio tambien puede ir aquí
+// Ordena los artículos
+$articulos->ordenarArticulos($criterio);
 
-# Ordenar tabla libros
-
-// Invocamos la función que se encargará de ordenar el contenido de la vista
-$articulos = ordenar($articulos, $criterio);
+// Ahora, $articulos->tabla contiene los artículos ordenados
+$articulosOrdenados = $articulos->getTabla();
 
 ?>

@@ -180,6 +180,92 @@
         public function create(Articulo $data) {
             $this->tabla[] = $data;
         }
+    
+        public function delete($indice){
+            unset($this->tabla[$indice]);
+            array_values($this->tabla);
+        }
+
+        public function read($indice)
+        {
+            return $this->tabla[$indice];
+        }
+    
+        public function update($indice, Articulo $data)
+        {
+            $this->tabla[$indice] = $data;
+        }
+    
+        private function compararPorDescripcion($a, $b)
+        {
+            return strcmp($a->getDescripcion(), $b->getDescripcion());
+        }
+    
+        private function compararPorModelo($a, $b)
+        {
+            return strcmp($a->getModelo(), $b->getModelo());
+        }
+    
+        private function getMarcaPorIndice($indice)
+        {
+            $marcas = ArrayArticulos::getMarcas();
+            return $marcas[$indice];
+        }
+    
+        private function compararPorMarca($a, $b)
+        {
+            $marcaA = $this->getMarcaPorIndice($a->getMarca());
+            $marcaB = $this->getMarcaPorIndice($b->getMarca());
+            return strcmp($marcaA, $marcaB);
+        }
+    
+        private function getCategoriaPorIndice($indice)
+        {
+            $categorias = ArrayArticulos::getCategorias();
+            return $categorias[$indice];
+        }
+    
+        private function compararPorCategorias($a, $b)
+        {
+            $categoriaA = $this->getCategoriaPorIndice($a->getCategorias()[0]);
+            $categoriaB = $this->getCategoriaPorIndice($b->getCategorias()[0]);
+            return strcmp($categoriaA, $categoriaB);
+        }
+    
+        private function compararPorUnidades($a, $b)
+        {
+            return intval($a->getUnidades()) <=> intval($b->getUnidades());
+        }
+    
+        private function compararPorPrecio($a, $b)
+        {
+            return intval($a->getPrecio()) <=> intval($b->getPrecio());
+        }
+    
+        public function ordenarArticulos($criterio)
+        {
+            switch ($criterio) {
+                case 'descripcion':
+                    usort($this->tabla, [$this, 'compararPorDescripcion']);
+                    break;
+                case 'modelo':
+                    usort($this->tabla, [$this, 'compararPorModelo']);
+                    break;
+                case 'marca':
+                    usort($this->tabla, [$this, 'compararPorMarca']);
+                    break;
+                case 'categorias':
+                    usort($this->tabla, [$this, 'compararPorCategorias']);
+                    break;
+                case 'unidades':
+                    usort($this->tabla, [$this, 'compararPorUnidades']);
+                    break;
+                case 'precio':
+                    usort($this->tabla, [$this, 'compararPorPrecio']);
+                    break;
+            }
+        }
+
     }
 
 ?>

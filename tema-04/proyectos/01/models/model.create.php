@@ -14,37 +14,32 @@
     
     */
 
-    #Creamos la tabla
-    $articulos = generar_tabla_articulos();
+   // Carga de categorias y marcas
+   $categorias = ArrayArticulos::getCategorias();
+   $marcas = ArrayArticulos::getMarcas();
 
-    #Cargamos las categorias
-    $categorias = generar_tabla_categorias();
+   // Cargamos el array de objetos con articulos
+   $articulos = new ArrayArticulos();
+   $articulos->getDatos();
 
-    #Cargamos las marcas
-    $marcas = generar_tabla_marcas();
-    
-    #Generamos la id automaticamente
-    $id = ultimoId($articulos)+1;
+   // Recogemos los datos del formulario
+   $id = $_POST['id'];
+   $descripcion = $_POST['descripcion'];
+   $modelo = $_POST['modelo'];
+   $marca = $_POST['marcas'];
+   $categorias_art = $_POST['categorias'];
+   $unidades = $_POST['unidades'];
+   $precio = $_POST['precio'];
 
-    #extreaemos en variables los valores del formulario
-    $descripcion = $_POST['descripcion'];
-    $modelo = $_POST['modelo'];
-    $marca = $_POST['marca'];
-    $unidades = $_POST['unidades'];
-    $precio = $_POST['precio'];
 
-    #creo un array asociativo con los detalles del nuevo elemento
-    $nuevo_articulo = [
-        'id' => $id,
-        'descripcion'=> $descripcion,
-        'modelo'=> $modelo,
-        'marca' => $marcas,
-        'categoria'=> $_POST('categorias'),
-        'unidades'=> $unidades,
-        'precio' => $precio
-    ];
+   // Invocamos a la función nuevo(), que nos permitirá introducir
+   //nuevo($articulos,$id,$descripcion,$modelo,$categori,$unidades,$precio);
+   $articulo = new Articulo($id,$descripcion,$modelo,$marca,$categorias_art,$unidades, $precio);
 
-    #Metemos los articulos en la matriz
-    $articulos = nuevo($articulos, $nuevo_articulo);
+   // Añadimos el nuevo artículo(objeto) usando la funcion create
+   $articulos->create($articulo);
+
+   // Generamos una notificación
+   $notificacion = "Articulo creado con éxito";
 
 ?>

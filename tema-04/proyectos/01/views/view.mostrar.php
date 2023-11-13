@@ -3,52 +3,83 @@
 
 <head>
     <?php include 'views/layouts/head.html' ?>
-    <title>Proyecto 4.2 - Gestión de Tabla Artículos</title>
+    <title>Proyecto 3.1 - Gestión de libros</title>
 </head>
 
 <body>
     <!-- Capa principal -->
     <div class="container">
-        <!-- Cabecera Documento -->
-        <?php include 'partials/header.php' ?>
+
+        <!-- cabecera documento -->
+        <?php include 'views/partials/header.php' ?>
 
         <legend>Formulario Mostrar Artículo</legend>
 
-        <form action="mostrar.php?id=<?= $id ?>" method="POST">
-        <div class="mb-3">
-                <label for="id" class="form-label">Id</label>
-                <input type="text" class="form-control" name="id" value="<?= $articulo['id'] ?>" disabled>
+        <!-- Formulario Mostrar Artículo -->
+        <form>
+
+            <!-- id -->
+            <div class="mb-3">
+                <label for="titulo" class="form-label">Id</label>
+                <input type="text" class="form-control" name="id" value="<?= $articulo->getId() ?>" disabled>
             </div>
+            <!-- Descripción -->
             <div class="mb-3">
                 <label for="descripcion" class="form-label">Descripción</label>
-                <input type="text" class="form-control" name="descripcion" value="<?= $articulo['descripcion'] ?>" disabled>
+                <input type="text" class="form-control" name="descripcion" value="<?= $articulo->getDescripcion()  ?>"
+                    disabled>
             </div>
+            <!-- Modelo -->
             <div class="mb-3">
                 <label for="modelo" class="form-label">Modelo</label>
-                <input type="text" class="form-control" name="modelo" value="<?= $articulo['modelo'] ?>" disabled>
+                <input type="text" class="form-control" name="modelo" value="<?= $articulo->getModelo() ?>" disabled>
             </div>
+            <!-- Marca Select -->
             <div class="mb-3">
-                <label for="categoria" class="form-label">Categoría</label>
-                <input type="text" class="form-control" name="categoria" value="<?= $categorias[$articulo['categoria']] ?>" disabled>
+                <label for="marca" class="form-label">Marca</label>
+                <input type="text" class="form-control" name="categoria"
+                    value="<?= $marcas[$articulo->getMarca()] ?>" disabled>
             </div>
+            <!-- Unidades -->
             <div class="mb-3">
-                <label for="unidades" class="form-label">Stock</label>
-                <input type="text" class="form-control" name="unidades" value="<?= $articulo['unidades'] ?>" disabled>
+                <label for="unidades" class="form-label">Unidades</label>
+                <input type="number" class="form-control" name="unidades" step="0.01"
+                    value="<?= $articulo->getUnidades() ?>" disabled>
             </div>
+            <!-- Precio -->
             <div class="mb-3">
-                <label for="precio" class="form-label">Precio</label>
-                <input type="text" class="form-control" name="precio" step="0.01" value="<?= $articulo['precio'] ?>" disabled>
+                <label for="precio" class="form-label">Precio (€)</label>
+                <input type="number" class="form-control" name="precio" step="0.01" 
+                value="<?= $articulo->getPrecio() ?>" disabled>
             </div>
 
+             <!-- Categorías -->
+             <div class="mb-3">
+                <label for="marca" class="form-label">Categorías</label>
+                <input type="text" class="form-control" name="categorias"
+                    value="<?= implode(', ', ArrayArticulos::mostrarCategorias($categorias, $articulo->getCategorias())) ?>" disabled>
+            </div>
+
+
+            <!-- botones de acción -->
             <a class="btn btn-primary" href="index.php" role="button">Volver</a>
 
         </form>
 
-        <!-- Pie del codumento -->
+        <br>
+        <br>
+        <br>
+
+
+
+
+        <!-- Pié del documento -->
         <?php include 'views/partials/footer.html' ?>
+
     </div>
 
     <!-- javascript bootstrap 532 -->
     <?php include 'views/layouts/javascript.html' ?>
 </body>
+
 </html>

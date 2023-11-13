@@ -9,18 +9,17 @@
     
     */
 
-    #Genero la tabla
-    $articulos = generar_tabla_articulos();
+    // Cargar las categorías y crear un Array de Artículos
+$categorias = ArrayArticulos::getCategorias();
+$marcas = ArrayArticulos::getMarcas();
 
-    #Cargamos las categorias
-    $categorias = generar_tabla_categorias();
+$articulos = new ArrayArticulos();
+$articulos->getDatos();
 
-    #Cargamos la tabla marcas
-    $marcas = generar_tabla_marcas();
+// Cargo la expresion de búsqueda
+$expresion = $_GET['expresion'];
 
-    # Cargo la expresion
-    $expresion = $_GET['expresion'];
-
-    $articulos = buscar($articulos, $expresion);
+// Filtrar la tabla  a partir de esa expresión
+$articulos  = filtrar($articulos, $expresion);
 
 ?>

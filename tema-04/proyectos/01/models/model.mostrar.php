@@ -9,24 +9,20 @@
     
     */
 
-    #Genero la tabla
-    $articulos = generar_tabla_articulos();
+   #Cargamos las categorías y creamos un Array de Artículos
+   $categorias = ArrayArticulos::getCategorias();
+   $marcas = ArrayArticulos::getMarcas();
 
-    #Cargamos las categorias
-    $categorias = generar_tabla_categorias();
+   #Creamos un objeto de la clase ArrayArticulos
+   $articulos = new ArrayArticulos();
 
-    $id = $_GET['id'];
+   #Cargo los datos
+   $articulos->getDatos();
 
-    $indice_mostrar = buscar_en_tabla($articulos, 'id', $id);
+   #Obtengo el indice del  artículo que deseo editar
+   $indice = $_GET['indice'];
 
-    //comparacion estricta para distinguir el false del 0
-    if ($indice_mostrar !== false) {
-        //obtengo el array del elemento a mostrar
-        $articulo = $articulos[$indice_mostrar];
-
-    } else {
-        echo 'ERROR: artículo no encontrado';
-        exit();
-    }
+   #Pillamos el índice del articulo que queremos editar
+   $articulo = $articulos->read($indice);
 
 ?>

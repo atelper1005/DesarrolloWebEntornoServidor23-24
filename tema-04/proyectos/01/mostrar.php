@@ -8,9 +8,9 @@
         
     */
 
-    #Librerias
-    include "class/class.articulo.php";
-    include "class/class.arrayArticulo.php";
+    #Clases
+    include 'class/class.alumno.php';
+    include 'class/class.arrayAlumno.php';
 
     #Modelo
     include "models/model.mostrar.php";

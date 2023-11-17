@@ -3,7 +3,7 @@
 
 <head>
     <?php include 'views/layouts/head.html' ?>
-    <title>Proyecto 4.2 - Gestión Artículos</title>
+    <title>Proyecto 4.2 - Gestión Alumnos</title>
 </head>
 
 <body>
@@ -12,52 +12,56 @@
         <!-- Cabecera Documento -->
         <?php include 'views/partials/header.php' ?>
 
-        <legend>Formulario Nuevo Artículo</legend>
+        <legend>Formulario Nuevo Alumno</legend>
 
         <form action="create.php" method="POST">
 
-            <!-- Descripción -->
+            <!-- Nombre -->
             <div class="mb-3">
-                <label for="descripcion" class="form-label">Descripción</label>
-                <input type="text" class="form-control" name="descripcion">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" name="nombre">
             </div>
-
-            <!-- Modelo -->
+            <!-- Apellidos -->
             <div class="mb-3">
-                <label for="modelo" class="form-label">Modelo</label>
-                <input type="text" class="form-control" name="modelo">
+                <label for="apellidos" class="form-label">Apellidos</label>
+                <input type="text" class="form-control" name="apellidos">
             </div>
-
-            <!-- Marca select -->
+            <!-- Email -->
             <div class="mb-3">
-                <label class="form-label">Marca</label>
-                <select class="form-select" aria-label="Default select example" name="marca">
-                    <option selected disabled>Seleccione una marca:</option>
-                    <?php foreach($marcas as $clave => $marca):  ?>
-                        <option value="<?= $clave ?>"><?= $marca ?></option>
-                        <?php endforeach; ?>
+                <label for="email" class="form-label">Email</label>
+                <input type="text" class="form-control" name="email">
+            </div>
+            <!-- Fecha Nacimiento -->
+            <div class="mb-3">
+                <label for="fecha_nacimiento" class="form-label">Fecha Nacimiento</label>
+                <input type="date" class="form-control" name="fecha_nacimiento">
+            </div>
+            <!-- Curso Select -->
+            <div class="mb-3">
+                <label for="curso" class="form-label">Curso</label>
+                <select class="form-select" aria-label="Default select example" name="curso">
+                    <option selected disabled>Seleccione Curso</option>
+                    <?php foreach ($cursos as $indice => $curso): ?>
+                        <option value="<?= $indice ?>">
+                            <?= $curso ?>
+                        </option>
+                    <?php endforeach; ?>
                 </select>
             </div>
 
-            <!-- Categorias Checkbox -->
-
-            <!-- Unidades -->
+            <!-- Asignaturas checkbox -->
             <div class="mb-3">
-                <label for="unidades" class="form-label">Unidades</label>
-                <input type="text" class="form-control" name="unidades">
+                <label class="form-label">Asignaturas</label>
+                <?php foreach ($asignaturas as $indice => $asignatura): ?>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="asignaturas[]" value="<?= $indice ?>">
+                        <label class="form-check-label">
+                            <?= $asignatura ?>
+                        </label>
+                    </div>
+                <?php endforeach; ?>
             </div>
 
-            <!-- Precio -->
-            <div class="mb-3">
-                <label for="precio" class="form-label">Precio</label>
-                <input type="text" class="form-control" name="precio">
-            </div>
-
-            <!-- Checkbox Categorias -->
-            <div class="mb-3">
-                <label for="categorias" class="form-label">
-
-            </div>
 
             <!-- Botones -->
             <a class="btn btn-secondary" href="index.php" role="button">Cancelar</a>

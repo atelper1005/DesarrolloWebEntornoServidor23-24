@@ -9,12 +9,12 @@
     
     */
 
-    // Cargar las categorías y crear un Array de Artículos
-$categorias = ArrayArticulos::getCategorias();
-$marcas = ArrayArticulos::getMarcas();
+// Cargar las categorías y crear un Array de Artículos
+$asignaturas = ArrayAlumnos::getAsignaturas();
+$curso = ArrayAlumnos::getCurso();
 
-$articulos = new ArrayArticulos();
-$articulos->getDatos();
+$alumnos = new ArrayAlumnos();
+$alumnos->getAlumno();
 
 // Cargo la expresion de búsqueda
 $expresion = $_GET['expresion'];

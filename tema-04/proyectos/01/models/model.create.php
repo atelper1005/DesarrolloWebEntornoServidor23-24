@@ -14,32 +14,40 @@
     
     */
 
-   // Carga de categorias y marcas
-   $categorias = ArrayArticulos::getCategorias();
-   $marcas = ArrayArticulos::getMarcas();
+    // Carga de categorias y marcas
+    $curso = ArrayAlumnos::getCurso();
+    $asignaturas = ArrayAlumnos::getAsignaturas();
 
    // Cargamos el array de objetos con articulos
-   $articulos = new ArrayArticulos();
-   $articulos->getDatos();
+    $alumnos = new ArrayAlumnos();
+    $alumnos->getAlumno();
 
    // Recogemos los datos del formulario
-   $id = $_POST['id'];
-   $descripcion = $_POST['descripcion'];
-   $modelo = $_POST['modelo'];
-   $marca = $_POST['marcas'];
-   $categorias_art = $_POST['categorias'];
-   $unidades = $_POST['unidades'];
-   $precio = $_POST['precio'];
+    $id = $_POST['id'];
+    $nombre = $_POST['nombre'];
+    $apellidos = $_POST['apellidos'];
+    $email = $_POST['email'];
+    $fecha_nacimiento = $_POST['fecha_nacimiento'];
+    $fecha_nacimiento = date('d/m/Y', strtotime($fecha_nacimiento));
+    $curso = $_POST['curso'];
+    $asignaturas = $_POST['asignaturas'];
 
 
-   // Invocamos a la función nuevo(), que nos permitirá introducir
-   //nuevo($articulos,$id,$descripcion,$modelo,$categori,$unidades,$precio);
-   $articulo = new Articulo($id,$descripcion,$modelo,$marca,$categorias_art,$unidades, $precio);
+   #Creamos un objeto alumno a partir de los detalles del formulario
+   $alumno = new Alumno(
+        $id,
+        $nombre,
+        $apellidos,
+        $email,
+        $fecha_nacimiento,
+        $curso,
+        $asignaturas
+    );
 
-   // Añadimos el nuevo artículo(objeto) usando la funcion create
-   $articulos->create($articulo);
+   // Añadimos el nuevo alumno(objeto) usando la funcion create
+   $alumnos->create($alumno);
 
    // Generamos una notificación
-   $notificacion = "Articulo creado con éxito";
+   $notificacion = "Alumno creado con éxito";
 
 ?>

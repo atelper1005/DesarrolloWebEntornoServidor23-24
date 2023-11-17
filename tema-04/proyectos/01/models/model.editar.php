@@ -14,21 +14,21 @@
     
     */
 
-    #Cargamos las categorías y creamos un Array de Artículos
-    $categorias = ArrayArticulos::getCategorias();
-    $marcas = ArrayArticulos::getMarcas();
+    #Cargamos las categorías y creamos un Array de Alumnos
+    $curso = ArrayAlumnos::getCurso();
+    $asignaturas = ArrayAlumnos::getAsignaturas();
 
-    #Creamos un objeto de la clase ArrayArticulos
-    $articulos = new ArrayArticulos();
+    #Creamos un objeto de la clase ArrayAlumnos
+    $alumnos = new ArrayAlumnos();
 
     #Cargo los datos
-    $articulos->getDatos();
+    $alumnos->getAlumno();
 
     #Obtengo el indice del  artículo que deseo editar
     $indice = $_GET['indice'];
 
 
-    #Pillamos el índice del articulo que queremos editar
-    $articulo = $articulos->read($indice);
+    #Pillamos el índice del alumno que queremos editar
+    $alumno = $alumnos->read($indice);
 
 ?>

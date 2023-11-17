@@ -3,7 +3,7 @@
 
 <head>
     <?php include 'views/layouts/head.html' ?>
-    <title>Proyecto 3.1 - Gestión de libros</title>
+    <title>Proyecto 4.2 - Gestión Alumnos</title>
 </head>
 
 <body>
@@ -13,51 +13,59 @@
         <!-- cabecera documento -->
         <?php include 'views/partials/header.php' ?>
 
-        <legend>Formulario Mostrar Artículo</legend>
+        <legend>Formulario Mostrar Alumno</legend>
 
         <!-- Formulario Mostrar Artículo -->
         <form>
 
             <!-- id -->
             <div class="mb-3">
-                <label for="titulo" class="form-label">Id</label>
-                <input type="text" class="form-control" name="id" value="<?= $articulo->getId() ?>" disabled>
+                <label class="form-label">id</label>
+                <input type="number" class="form-control" name="id" value="<?= $alumno->id; ?>" disabled>
             </div>
-            <!-- Descripción -->
+            <!-- nombre -->
             <div class="mb-3">
-                <label for="descripcion" class="form-label">Descripción</label>
-                <input type="text" class="form-control" name="descripcion" value="<?= $articulo->getDescripcion()  ?>"
-                    disabled>
+                <label class="form-label">Nombre</label>
+                <input type="text" class="form-control" name="nombre" value="<?= $alumno->nombre; ?>" disabled>
             </div>
-            <!-- Modelo -->
+            <!-- apellidos -->
             <div class="mb-3">
-                <label for="modelo" class="form-label">Modelo</label>
-                <input type="text" class="form-control" name="modelo" value="<?= $articulo->getModelo() ?>" disabled>
-            </div>
-            <!-- Marca Select -->
-            <div class="mb-3">
-                <label for="marca" class="form-label">Marca</label>
-                <input type="text" class="form-control" name="categoria"
-                    value="<?= $marcas[$articulo->getMarca()] ?>" disabled>
-            </div>
-            <!-- Unidades -->
-            <div class="mb-3">
-                <label for="unidades" class="form-label">Unidades</label>
-                <input type="number" class="form-control" name="unidades" step="0.01"
-                    value="<?= $articulo->getUnidades() ?>" disabled>
-            </div>
-            <!-- Precio -->
-            <div class="mb-3">
-                <label for="precio" class="form-label">Precio (€)</label>
-                <input type="number" class="form-control" name="precio" step="0.01" 
-                value="<?= $articulo->getPrecio() ?>" disabled>
+                <label for="apellidos" class="form-label">Apellidos</label>
+                <input type="text" class="form-control" name="apellidos" value="<?= $alumno->apellidos ?>" disabled>
             </div>
 
-             <!-- Categorías -->
-             <div class="mb-3">
-                <label for="marca" class="form-label">Categorías</label>
-                <input type="text" class="form-control" name="categorias"
-                    value="<?= implode(', ', ArrayArticulos::mostrarCategorias($categorias, $articulo->getCategorias())) ?>" disabled>
+            <!-- email -->
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" name="email" value="<?= $alumno->email ?>" disabled>
+            </div>
+
+            <!-- fecha_nac -->
+            <div class="mb-3">
+                <label for="fecha_nacimiento" class="form-label">Fecha Nacimiento</label>
+                <input type="text" class="form-control" name="fecha_nacimiento" value="<?= $alumno->fecha_nacimiento ?>"
+                    disabled>
+            </div>
+
+            <!-- curso -->
+            <div class="mb-3">
+                <label class="form-label">Curso</label>
+                <select class="form-select" aria-label="Default select example" name="curso" disabled>
+                    <?php foreach ($cursos as $key => $curso): ?>
+                        <option value="<?= $key ?>" <?= ($alumno->curso == $key) ? 'selected' : null ?> disabled>
+                            <?= $curso ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+
+            <!-- asignaturas -->
+            <!-- asignaturas -->
+            <div class="mb-3">
+                <label for="asignaturas" class="form-label">Asignaturas</label>
+                <input type="text" class="form-control"
+                    value="<?= implode(', ', ArrayAlumnos::mostrarAsignaturas($asignaturas, $alumno->asignaturas)) ?> "
+                    disabled>
             </div>
 
 

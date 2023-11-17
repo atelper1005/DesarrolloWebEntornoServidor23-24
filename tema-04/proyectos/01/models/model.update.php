@@ -19,47 +19,38 @@
     */
 
 // Cargar las categorías y crear un Array de Artículos
-$categorias = ArrayArticulos::getCategorias();
-$marcas = ArrayArticulos::getMarcas();
+$curso = ArrayAlumnos::getCurso();
+$asignaturas = ArrayAlumnos::getAsignaturas();
 
-$articulos = new ArrayArticulos();
-$articulos->getDatos();
+$alumnos = new ArrayAlumnos();
+$alumnos->getAlumno();
 
 // Extraer índice del artículo que voy a editar
 $indice = $_GET['indice'];
 
-//Creo una variable articulo y hago que tenga los datos del artículo que quiero editar
-$articulo = $articulos->read($indice);
+// Extraemos los detalles del formulario
+$id = $_POST['id'];
+$nombre = $_POST['nombre'];
+$apellidos = $_POST['apellidos'];
+$email = $_POST['email'];
+$fecha_nacimiento = $_POST['fecha_nacimiento'];
+$fecha_nacimiento = date('d/m/Y', strtotime($fecha_nacimiento));
+$curso = $_POST['curso'];
+$asignaturasNuevo = $_POST['asignaturas'];
 
-// Pillo los detalles del artículo seleccionado que están en el formulario en view.editar.php
-$datosArticulo = [
-    'descripcion' => $_POST['descripcion'],
-    'modelo' => $_POST['modelo'],
-    'marca' => $_POST['marca'],
-    'categorias' => $_POST['categorias'],
-    'unidades' => $_POST['unidades'],
-    'precio' => $_POST['precio']
-];
+$alumno = new Alumno(
+    $id,
+    $nombre,
+    $apellidos,
+    $email,
+    $fecha_nacimiento,
+    $curso,
+    $asignaturasNuevo
+);
 
-// Creo las variables que modificaré con los setter y las igualo con las que tiene el artículo al darle click a editar
-$descripcion = $datosArticulo['descripcion'];
-$modelo = $datosArticulo['modelo'];
-$marca = $datosArticulo['marca'];
-$categoriasArt = $datosArticulo['categorias'];
-$unidades = $datosArticulo['unidades'];
-$precio = $datosArticulo['precio'];
-
-//Con los setter cambio los valores de las variables a lo que haya cambiado en el formulario
-$articulo->setDescripcion($descripcion);
-$articulo->setModelo($modelo);
-$articulo->setMarca($marca);
-$articulo->setCategorias($categoriasArt);
-$articulo->setUnidades($unidades);
-$articulo->setPrecio($precio);
-
-//Añadimos el artículo
-$articulos->update($indice, $articulo);
+//Llamamos a la función update para editar el alumno
+$alumnos->update($indice,$alumno);
 
 // Generar notificación
-$notificacion = "Artículo editado correctamente";
+$notificacion = "Alumno editado correctamente";
 ?>

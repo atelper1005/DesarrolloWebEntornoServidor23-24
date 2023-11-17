@@ -197,4 +197,21 @@
         return $aux;
     }
 
+    function filtrar($tabla = [],$expresion){
+        // Crearemos un array vacío donde cargaremos las filas que cumpla la expresion de busqueda
+        $aux = [];
+        foreach ($tabla as $elemento){
+            if(array_search($expresion,$elemento)){
+                $aux[] = $elemento;
+            }
+        }
+    
+        // Validaremos la busqueda
+        if(!empty($aux)){
+            $tabla = $aux;
+        }
+        return $aux;
+   }
+
+   
 ?>

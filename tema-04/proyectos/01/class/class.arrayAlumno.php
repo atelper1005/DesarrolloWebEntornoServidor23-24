@@ -68,7 +68,7 @@
             return $asignaturas;
         }
 
-        public function getDatos() {
+        public function getAlumno() {
             #Alumno 1
             $alumno = new Alumno(
                 1,
@@ -126,12 +126,12 @@
             #Alumno 5
             $alumno = new Alumno(
                 5,
-                'Componente - Tarjeta gráfica NVIDIA GeForce RTX 3080',
-                'NVIDIA GeForce RTX 3080',
+                'Jorge',
+                'Coronil Villalba',
+                'jcorvil600@gmail.com',
+                '17/04/1997',
                 2,
-                [1, 3, 4],
-                10,
-                999.99
+                [6, 7, 8]
             );
 
             #Añadir articulo a la tabla
@@ -140,12 +140,12 @@
             #Alumno 6
             $alumno = new Alumno(
                 6,
-                'Pantalla - Monitor LG 27GL850-B',
-                'LG 27GL850-B',
+                'Diego',
+                'González Romero',
+                'diegoro@gmail.com',
+                '28/03/2001',
                 3,
-                [2, 3, 5],
-                30,
-                499.99
+                [6, 7, 8]
             );
 
             #Añadir articulo a la tabla
@@ -154,12 +154,68 @@
             #Alumno 7
             $alumno = new Alumno(
                 7,
-                'Impresora - Epson EcoTank ET-2720',
-                'Epson EcoTank ET-2720',
-                4,
-                [4, 5],
-                20,
-                249.99
+                'Adrián',
+                'Merino Gamaza',
+                'aamergam@g.educaand.es',
+                '10/12/2002',
+                2,
+                [6, 7, 8]
+            );
+
+            #Añadir articulo a la tabla
+            $this->tabla[] = $alumno;
+
+            #Alumno 8
+            $alumno = new Alumno(
+                8,
+                'Daniel Alfonso',
+                'Rodríguez Santos',
+                'darancuga@gmail.com',
+                '27/08/1999',
+                2,
+                [0, 1, 5]
+            );
+
+            #Añadir articulo a la tabla
+            $this->tabla[] = $alumno;
+
+            #Alumno 9
+            $alumno = new Alumno(
+                9,
+                'Ricardo',
+                'Moreno Cantea',
+                'rmorcan@g.educaand.es',
+                '13/05/2004',
+                3,
+                [6, 7, 8]
+            );
+
+            #Añadir articulo a la tabla
+            $this->tabla[] = $alumno;
+
+            #Alumno 10
+            $alumno = new Alumno(
+                10,
+                'Jonathan',
+                'León Canto',
+                'jleocan@g.educaand.es',
+                '19/06/2000',
+                3,
+                [6, 7, 8]
+            );
+
+            #Añadir articulo a la tabla
+            $this->tabla[] = $alumno;
+
+            #Alumno 11
+            $alumno = new Alumno(
+                11,
+                'Juan Jesús',
+                'Muñoz Perez',
+                'jjmunper@gmail.com',
+                '06/03/2000',
+                3,
+                [6, 7, 8]
             );
 
             #Añadir articulo a la tabla
@@ -167,15 +223,15 @@
         }
 
         //Podemos declararlo estatico porque no modifica ningun atributo de la clase
-        static public function mostrarCategorias($categorias, $categoriasArticulo) {
-            $arrayCategorias = [];
+        static public function mostrarAsignaturas($asignaturas, $asignaturasAlumno) {
+            $arrayAsignaturas = [];
     
-            foreach ($categoriasArticulo as $indice) {
-                $arrayCategorias[] = $categorias[$indice];
+            foreach ($asignaturasAlumno as $indice) {
+                $arrayAsignaturas[] = $asignaturas[$indice];
             }
     
-            asort($arrayCategorias);
-            return $arrayCategorias;
+            asort($arrayAsignaturas);
+            return $arrayAsignaturas;
         }   
 
         public function create(Alumno $data) {

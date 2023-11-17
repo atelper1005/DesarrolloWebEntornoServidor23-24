@@ -9,8 +9,9 @@
         
     */
 
-    #Libreria
-    include 'libs/funciones_articulos.php';
+    #Clases
+    include 'class/class.alumno.php';
+    include 'class/class.arrayAlumno.php';
 
     #Modelo
     include 'models/model.create.php';

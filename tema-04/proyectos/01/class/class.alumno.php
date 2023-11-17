@@ -34,13 +34,24 @@
         }
 
         
-
+/*
         public function getEdad() {
+                setlocale(LC_TIME, 'es_ES');
+
                 $fechaNacimiento = new DateTime($this->fecha_nacimiento);
                 $hoy = new DateTime();
 
                 $edad = $fechaNacimiento->diff($hoy)->y;
                 return $edad;
+        }
+
+        */
+
+        function getEdad() {
+            $fechaNacimiento = DateTime::createFromFormat('d/m/Y', $this->fecha_nacimiento);
+            $hoy = new DateTime();
+            $edad = $hoy->diff($fechaNacimiento)->y;
+            return $edad;
         }
     }
 

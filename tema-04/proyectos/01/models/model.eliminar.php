@@ -10,18 +10,18 @@
     */
 
      // cargamos las tablas
-     $categorias = ArrayArticulos::getCategorias();
-     $marcas = ArrayArticulos::getMarcas();
-     $articulos = new ArrayArticulos();
-     $articulos->getDatos();
+    $curso = ArrayAlumnos::getCurso();
+    $asignaturas = ArrayAlumnos::getAsignaturas();
+
+    $alumnos = new ArrayAlumnos();
+    $alumnos->getAlumno();
  
      // Extraemos el id a través del método get
-     $id = $_GET['indice'];
- 
+     $indice = $_GET['indice'];
  
      // invocamos a la función eliminar
-     $articulos->delete($id);
+     $alumnos->delete($indice);
  
      // Notificacion
-     $notificacion="Artículo eliminado con éxito";
+     $notificacion="Alumno eliminado con éxito";
 ?>

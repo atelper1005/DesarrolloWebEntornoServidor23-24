@@ -8,8 +8,8 @@
     */
 
     #Clases
-    include 'class/class.articulo.php';
-    include 'class/class.arrayArticulo.php';
+    include 'class/class.alumno.php';
+    include 'class/class.arrayAlumno.php';
 
     #Modelo
     include 'models/model.index.php';

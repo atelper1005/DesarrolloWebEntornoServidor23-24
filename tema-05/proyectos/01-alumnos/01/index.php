@@ -12,5 +12,6 @@
 
     #Creo un objeto con los detalles del alumno
     $alumnos = $db->getAlumnos();
+    
 
 ?>

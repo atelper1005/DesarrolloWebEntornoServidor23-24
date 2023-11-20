@@ -11,7 +11,7 @@
     //setlocale(LC_MONETARY, "es_ES");
 
     #Cargamos los arrays a partir de los metodos estaticos de la clase ArrayArticulos
-    $curso = ArrayAlumnos::getCurso();
+    $cursos = ArrayAlumnos::getCurso();
     $asignaturas = ArrayAlumnos::getAsignaturas();
 
     #Creamos un objeto de la clase ArrayArticulos

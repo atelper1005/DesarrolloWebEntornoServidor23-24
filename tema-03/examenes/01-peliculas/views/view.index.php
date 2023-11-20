@@ -27,13 +27,10 @@
         <!-- Generamos el encabezado de la tabla películas -->
         <thead>
           <tr>
-           <th>Id</th>
-           <th>Título</th>
-           <th>País</th>
-           <th>Director</th>
-           <th>Géneros</th>
-           <th>Año</th>
-           <th>Acciones</th>
+          <?php foreach(Array_keys($peliculas[0]) as $elementoTabla): ?>
+            <th><?=ucfirst($elementoTabla)?></th>
+          <?php endforeach;?>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -50,9 +47,9 @@
             
               <!-- Muestro los botones de acción -->
               <td>
-                <a href="#" Title="Eliminar"><i class="bi bi-trash-fill"></i></a>
-                <a href="#" Title="Modificar"><i class="bi bi-pencil-square"></i></a>
-                <a href="mostrar.php" Title="Mostrar"><i class="bi bi-eye"></i></a>
+                <a href="eliminar.php?id=<?=$pelicula['id']?>" Title="Eliminar"><i class="bi bi-trash-fill"></i></a>
+                <a href="editar.php?id=<?=$pelicula['id']?>" Title="Modificar"><i class="bi bi-pencil-square"></i></a>
+                <a href="mostrar.php?id=<?=$pelicula['id']?>" Title="Mostrar"><i class="bi bi-eye"></i></a>
               </td>
             <!-- Fin botones de acción -->
             

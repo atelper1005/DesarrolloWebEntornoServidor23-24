@@ -7,11 +7,13 @@
     
     */
 
-    #Conecto con la base de datos
-    $db = new Fp();
+    #class
+    include 'class/class.conexion.php';
+    include 'class/class.fp.php';
 
-    #Creo un objeto con los detalles del alumno
-    $alumnos = $db->getAlumnos();
-    
+    #models
+    include 'models/model.index.php';
 
+    #views
+    include 'views/view.index.php';
 ?>

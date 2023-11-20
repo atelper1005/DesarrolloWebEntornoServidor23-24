@@ -15,7 +15,7 @@
     */
 
     #Cargamos las categorías y creamos un Array de Alumnos
-    $curso = ArrayAlumnos::getCurso();
+    $cursos = ArrayAlumnos::getCurso();
     $asignaturas = ArrayAlumnos::getAsignaturas();
 
     #Creamos un objeto de la clase ArrayAlumnos

@@ -15,7 +15,7 @@
     */
 
     // Carga de categorias y marcas
-    $curso = ArrayAlumnos::getCurso();
+    $cursos = ArrayAlumnos::getCurso();
     $asignaturas = ArrayAlumnos::getAsignaturas();
 
    // Cargamos el array de objetos con articulos
@@ -29,8 +29,8 @@
     $email = $_POST['email'];
     $fecha_nacimiento = $_POST['fecha_nacimiento'];
     $fecha_nacimiento = date('d/m/Y', strtotime($fecha_nacimiento));
-    $curso = $_POST['curso'];
-    $asignaturas = $_POST['asignaturas'];
+    $curso_alumno = $_POST['curso'];
+    $asignaturas_alumno = $_POST['asignaturas'];
 
 
    #Creamos un objeto alumno a partir de los detalles del formulario
@@ -40,8 +40,8 @@
         $apellidos,
         $email,
         $fecha_nacimiento,
-        $curso,
-        $asignaturas
+        $curso_alumno,
+        $asignaturas_alumno
     );
 
    // Añadimos el nuevo alumno(objeto) usando la funcion create

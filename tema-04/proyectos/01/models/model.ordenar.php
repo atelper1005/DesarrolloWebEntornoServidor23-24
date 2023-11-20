@@ -11,19 +11,17 @@
 */
 
 // Cargar las categorías y crear un Array de Artículos
-$categorias = ArrayArticulos::getCategorias();
-$marcas = ArrayArticulos::getMarcas();
-
-$articulos = new ArrayArticulos();
-$articulos->getDatos();
+$cursos = ArrayAlumnos::getCurso();
+$asignaturas = ArrayAlumnos::getAsignaturas();
+ 
+# Creamos un objeto de la clase ArrayAlumnos
+$alumnos = new ArrayAlumnos();
+$alumnos->getAlumno();
 
 // Cargar el criterio de ordenación
 $criterio = $_GET['criterio'];
 
-// Ordena los artículos
-$articulos->ordenarArticulos($criterio);
-
-// Ahora, $articulos->tabla contiene los artículos ordenados
-$articulosOrdenados = $articulos->getTabla();
+// Invocamos la función que se encargará de ordenar el contenido de la vista
+//$alumnos->order($criterio);
 
 ?>

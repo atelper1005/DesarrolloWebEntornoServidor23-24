@@ -17,24 +17,24 @@
 
   
 
-    
+    $id = generarId($peliculas);
     $titulo = $_POST['titulo'];
     $pais = $_POST['pais'];
     $director = $_POST['director'];
-    $generos = $_POST['generos'];
+    $generosPeli = $_POST['generos'];
     $año = $_POST['año'];
 
-    
+    //  Creamos un array nuevo, cuyos valores serán los enviados por el formulario
     $nueva_pelicula = [
         'id' => $id,
         'titulo'=> $titulo,
-        'pais'=> $paises,
+        'pais'=> $pais,
         'director' => $director,
-        'generos'=> $_POST('generos'),
+        'generos'=> $generosPeli,
         'año'=> $año
     ];
 
-    
-    $peliculas = nuevo($peliculas, $nueva_pelicula);
+    // Añadimos la película al array principal de películas
+    $peliculas[] = $nueva_pelicula;
 
 ?>

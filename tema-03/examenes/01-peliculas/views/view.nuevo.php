@@ -25,13 +25,13 @@
             <!-- Campo título -->
             <div class="mb3">
                 <label class="form-label">Título</label>
-                <input type="text" class="form-control" required>
+                <input type="text" class="form-control" name="titulo" required>
             </div>
 
             <!-- País Select -->
             <div class="mb-3">
                 <label for="pais" class="form-label">País</label>
-                <select class="form-select" aria-label="Default select example" name="paises">
+                <select class="form-select" aria-label="Default select example" name="pais">
                     <option selected disabled>Seleccione País</option>
                     <!-- Generar dinámicamente select  -->
                     <?php foreach ($paises as $indice => $pais): ?>
@@ -45,13 +45,13 @@
             <!-- Campo director -->
             <div class="mb3">
                 <label class="form-label">Director</label>
-                <input name = "" type="text" class="form-control" required>
+                <input name = "director" type="text" class="form-control" required>
             </div>
 
             <!-- Campo Año -->
             <div class="mb3">
                 <label class="form-label">Año</label>
-                <input name = "" type="number" class="form-control" required>
+                <input name = "año" type="number" class="form-control" required>
             </div>
 
              <!-- Géneros -->

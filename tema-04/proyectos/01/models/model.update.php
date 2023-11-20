@@ -19,7 +19,7 @@
     */
 
 // Cargar las categorías y crear un Array de Artículos
-$curso = ArrayAlumnos::getCurso();
+$cursos = ArrayAlumnos::getCurso();
 $asignaturas = ArrayAlumnos::getAsignaturas();
 
 $alumnos = new ArrayAlumnos();

@@ -16,7 +16,7 @@
         Formulario Mostrar Película
       </legend>
 
-      <form action="mostrar.php?id=<?= $id ?>" method="POST">
+      <form>
             <!-- Campo ID Oculto-->
             <div class="mb3"> 
                 <label class="form-label">Id</label>
@@ -50,7 +50,7 @@
              <!-- Géneros -->
              <div class="mb-3">
                 <label class="form-label">Géneros</label>
-                <input type="text" class="form-control" value="<?= $generos[$pelicula['genero']] ?>" disabled>
+                <input type="text" class="form-control" value="<?= implode(', ', mostrarGeneros($generos, $pelicula['generos'])) ?>" disabled>
             </div>
 
             <br>

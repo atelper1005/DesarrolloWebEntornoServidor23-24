@@ -82,6 +82,17 @@
         return $aux;
     }
 
+    # Busca un elemento concreto de la tabla
+    function buscarEnTabla($tabla,$columna,$valor){
+        $valoresColumna = array_column($tabla, $columna);
+        return array_search($valor, $valoresColumna,false);
+    }
+
+    # Busca el ultimo id, y lo incrementa (generación automatica de id)
+    function generarId($tabla){
+        $ultimoId = array_column($tabla, 'id');
+        return end($ultimoId)+1;
+    }
     
     
 ?>

@@ -4,6 +4,6 @@
 
     include("models/model.create.php");
 
-    include("views/view.nuevo.php");
+    include("views/view.index.php");
 
 ?>

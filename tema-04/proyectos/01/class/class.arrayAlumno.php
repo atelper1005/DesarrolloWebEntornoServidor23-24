@@ -223,7 +223,7 @@
         }
 
         //Podemos declararlo estatico porque no modifica ningun atributo de la clase
-        static public function mostrarAsignaturas($asignaturas, $asignaturasAlumno) {
+        static public function mostrarAsignaturas($asignaturas, $asignaturasAlumno=[]) {
             $arrayAsignaturas = [];
     
             foreach ($asignaturasAlumno as $indice) {

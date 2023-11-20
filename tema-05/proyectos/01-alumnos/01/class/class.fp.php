@@ -37,7 +37,42 @@ class Fp extends Conexion
             cursos ON alumnos.id_curso = cursos.id
         ORDER BY id";
 
-        $result = $this->db->query($sql);
+        #Ejecutamos directamente SQL
+        #Objeto de la clase mysqli_result
+        //$result = $this->db->query($sql);
+
+        #Mediante Plantilla SQL o Prepare
+        #Objeto de la clase mysqli_stmt
+        $stmt = $this->db->prepare($sql);
+
+        #ejecuto
+        $stmt->execute();
+
+        #Objeto de la clase mysqli_result
+        $result = $stmt->get_result();
+
+        return $result;
+    }
+
+    public function getCursos()
+    {
+        $sql = "SELECT 
+                    id, 
+                    nombreCorto curso 
+                FROM 
+                    cursos 
+                ORDER BY 
+                    id";
+
+        #Mediante Plantilla SQL o Prepare
+        #Objeto de la clase mysqli_stmt
+        $stmt = $this->db->prepare($sql);
+
+        #ejecuto
+        $stmt->execute();
+
+        #Objeto de la clase mysqli_result
+        $result = $stmt->get_result();
 
         return $result;
     }

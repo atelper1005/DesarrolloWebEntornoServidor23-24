@@ -27,6 +27,7 @@ class Fp extends Conexion
             alumnos.email,
             alumnos.telefono,
             alumnos.poblacion,
+            alumnos.dni,
             TIMESTAMPDIFF(YEAR,
                 alumnos.fechaNac,
                 NOW()) EDAD,
@@ -76,6 +77,8 @@ class Fp extends Conexion
 
         return $result;
     }
+
+    
 }
 
 ?>

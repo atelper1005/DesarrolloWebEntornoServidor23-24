@@ -24,8 +24,9 @@
                     <th>Id</th>
                     <th>Nombre</th>
                     <th>Email</th>
-                    <th>Edad</th></th>
+                    <th>Edad</th>
                     <th>Población</th>
+                    <th>DNI</th>
                     <th>Teléfono</th>
                     <th>Curso</th>
                     <th>Acciones</th>
@@ -33,7 +34,7 @@
             </thead>
             <!-- Cuerpo de tabla -->
             <tbody>
-            <?php foreach ($alumnos->getTabla() as $indice => $alumno): ?>
+            <?php foreach ($alumnos->getAlumnos() as $indice => $alumno): ?>
                     <tr>
                         <!-- Mostramos la información de cada alumno en las celdas -->
                         <td>
@@ -43,13 +44,16 @@
                             <?= $alumno['alumno'] ?>
                         </td>
                         <td>
-                            <?= $alumno->email ?>
+                            <?= $alumno['email'] ?>
                         </td>
-                        <td>
+                        <td class="text-end">
                             <?= $alumno['EDAD'] ?>
                         </td>
                         <td>
                             <?= $alumno['poblacion'] ?>
+                        </td>
+                        <td>
+                            <?= $alumno['dni'] ?>
                         </td>
                         <td>
                             <?= $alumno['telefono'] ?>

@@ -2,8 +2,8 @@
 
     #Clases
     include 'class/class.alumno.php';
-    include 'class/class.fp.php';
     include 'class/class.conexion.php';
+    include 'class/class.fp.php';
 
     #Modelo
     include 'models/model.create.php';

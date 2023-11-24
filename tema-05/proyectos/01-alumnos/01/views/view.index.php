@@ -34,14 +34,14 @@
             </thead>
             <!-- Cuerpo de tabla -->
             <tbody>
-            <?php foreach ($alumnos->getAlumnos() as $indice => $alumno): ?>
+            <?php foreach ($alumnos as $alumno): ?>
                     <tr>
                         <!-- Mostramos la información de cada alumno en las celdas -->
                         <td>
                             <?= $alumno['id'] ?>
                         </td>
                         <td>
-                            <?= $alumno['alumno'] ?>
+                            <?= $alumno['nombre'] ?>
                         </td>
                         <td>
                             <?= $alumno['email'] ?>

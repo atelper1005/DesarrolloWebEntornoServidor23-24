@@ -12,7 +12,7 @@ class Alumno {
     public $provincia;
     public $nacionalidad;
     public $dni;
-    public $fechaNac;
+    public $fecha_nacimiento;
     public $id_curso;
 
 }

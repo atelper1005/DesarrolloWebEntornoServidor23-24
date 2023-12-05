@@ -1,7 +1,7 @@
 <?php
 
     /*
-        Controlador principal index con PDO
+        Controlador principal create con PDO
     */
 
     # Cargamos configuración
@@ -9,15 +9,16 @@
 
     # Cargamos librería de funciones
 
-    # Cargamos clases en orden
+    #Clases
     include('class/class.conexion.php');
     include('class/class.alumno.php');
     include('class/class.alumnos.php');
 
-    # Cargo modelo
-    include('models/model.update.php');
+    #Modelo
+    include ('models/model.create.php');
 
-    # Cargo vista
-    include('views/view.index.php');
+    #Redirecciono controlador principal
+    header('location: index.php');
+    // include ('views/view.index.php'); 
 
 ?>

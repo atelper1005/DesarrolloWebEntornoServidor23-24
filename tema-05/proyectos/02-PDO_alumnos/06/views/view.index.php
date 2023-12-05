@@ -48,7 +48,7 @@
 
                         <!-- Detalles de alumnos -->
                         <td><?= $alumno->id ?></td>
-                        <td><?= $alumno->alumno ?></td>
+                        <td><?= $alumno->nombre ?></td>
                         <td class="text-end"><?= $alumno->edad ?></td>
                         <td><?= $alumno->dni ?></td>
                         <td><?= $alumno->poblacion ?></td>

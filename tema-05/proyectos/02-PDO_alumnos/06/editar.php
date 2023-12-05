@@ -5,7 +5,7 @@
     */
 
     # Cargamos configuración
-    include('config/bd.php');
+    include('config/db.php');
 
     # Cargamos librería de funciones
 

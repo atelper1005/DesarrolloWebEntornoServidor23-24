@@ -189,7 +189,7 @@ class Alumnos extends Conexion
         }
     }
 
-     /**
+    /**
      * Funcion para buscar un alumno
      */
     public function read_alumno($id)
@@ -301,7 +301,8 @@ class Alumnos extends Conexion
         }
     }
 
-    public function order($criterio){
+    public function order($criterio)
+    {
         try {
             $sql = "SELECT 
     alumnos.id,
@@ -335,6 +336,50 @@ ORDER BY $criterio";
             exit();
         }
 
+    }
+
+    public function filter($expresion)
+    {
+        try {
+            $sql = "SELECT 
+    alumnos.id,
+    CONCAT_WS(', ', alumnos.apellidos, alumnos.nombre) AS nombre,
+    alumnos.email,
+    alumnos.telefono,
+    alumnos.poblacion,
+    alumnos.dni,
+    TIMESTAMPDIFF(YEAR,
+        alumnos.fechaNac,
+        NOW()) AS edad,
+    cursos.nombreCorto AS curso
+FROM
+    fp.alumnos
+        INNER JOIN
+    cursos ON alumnos.id_curso = cursos.id
+    WHERE CONCAT_WS(' ', alumnos.id, alumnos.nombre,
+     alumnos.apellidos, alumnos.email, alumnos.telefono, 
+     alumnos.poblacion, alumnos.dni, TIMESTAMPDIFF(YEAR, alumnos.fechaNac, NOW()), cursos.nombreCorto) LIKE :expresion";
+
+            // Prepare->objeto clase pdostatement
+            $pdostmt = $this->pdo->prepare($sql);
+
+            // Manejamos la expresion
+            $expresionMod = "%$expresion%";
+
+            // Vinculamos el valor
+            $pdostmt->bindParam(':expresion', $expresionMod);
+
+            // Establecemos el tipo de fetch
+            $pdostmt->setFetchMode(PDO::FETCH_OBJ);
+            // Ejecutamos la consulta y obtenemos los resultados
+            $pdostmt->execute();
+            // Devolvemos el objeto clase pdostatement
+            return $pdostmt;
+
+        } catch (PDOException $e) {
+            include 'views/partials/errorDB.php';
+            exit();
+        }
     }
 }
 

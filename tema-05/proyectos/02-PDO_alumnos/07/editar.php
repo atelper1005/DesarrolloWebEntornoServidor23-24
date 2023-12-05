@@ -5,7 +5,7 @@
     */
 
     # Cargamos configuración
-    include('config/db.php');
+    include('config/bd.php');
 
     # Cargamos librería de funciones
 
@@ -15,9 +15,9 @@
     include('class/class.alumnos.php');
 
     # Cargo modelo
-    include('models/model.update.php');
+    include('models/model.editar.php');
 
     # Cargo vista
-    include('views/view.index.php');
+    include('views/view.editar.php');
 
 ?>

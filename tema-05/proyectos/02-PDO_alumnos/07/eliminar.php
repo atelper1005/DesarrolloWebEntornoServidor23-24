@@ -1,7 +1,7 @@
 <?php
 
     /*
-        Controlador principal index con PDO
+        Controlador Create 
     */
 
     # Cargamos configuración
@@ -11,13 +11,13 @@
 
     # Cargamos clases en orden
     include('class/class.conexion.php');
-    include('class/class.alumno.php');
     include('class/class.alumnos.php');
+    include('class/class.alumno.php');
 
     # Cargo modelo
-    include('models/model.update.php');
+    include('models/model.eliminar.php');
 
     # Cargo vista
-    include('views/view.index.php');
+    header('location: index.php');
 
 ?>

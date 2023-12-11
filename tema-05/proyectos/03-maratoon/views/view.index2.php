@@ -19,7 +19,7 @@
         <?php include 'views/partials/menu.php' ?>
 
         <!-- Notificación -->
-
+        <?php include 'views/partials/notificacion.php' ?>
 
         <!-- Muestra datos de la tabla -->
         <table class="table">
@@ -42,13 +42,13 @@
             <tbody>
 
                 <!-- Objeto mysqli_result puede ser asignado a foreach -->
-                <?php foreach ($alumnos as $alumno): ?>
+                <?php while ($alumno = $alumnos->fetch()): ?>
                     <tr>
                         <!-- Formatos distintos para cada  columna -->
 
                         <!-- Detalles de alumnos -->
                         <td><?= $alumno->id ?></td>
-                        <td><?= $alumno->nombre ?></td>
+                        <td><?= $alumno->alumno ?></td>
                         <td class="text-end"><?= $alumno->edad ?></td>
                         <td><?= $alumno->dni ?></td>
                         <td><?= $alumno->poblacion ?></td>
@@ -73,7 +73,7 @@
                         </td>
                     </tr>
 
-                <?php endforeach; ?>
+                <?php endwhile; ?>
 
 
             </tbody>

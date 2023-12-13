@@ -279,52 +279,49 @@ class Corredores extends Conexion
     /**
      * Funcion para editar un alumno
      */
-    public function update_corredor($id, Corredor $corredor)
-    {
-
+    public function update_corredor(int $id, Corredor $corredor){
         try {
-            # Prepare the SQL statement
+            // Creamos la consulta
             $sql = "UPDATE maratoon.corredores SET 
             nombre=:nombre, 
             apellidos=:apellidos, 
-            ciudad=:ciudad,
-            fechaNacimiento=:fechaNacimiento,
+            ciudad=:ciudad, 
+            fechaNacimiento=:fechaNacimiento, 
             sexo=:sexo,
             email=:email,
             dni=:dni,
             id_categoria=:id_categoria,
-            id_club=:id_club 
-            WHERE id= :id";
+            id_club=:id_club
+            WHERE id = :id";
 
-            # Create a PDOStatement object
+            // Preparamos la consulta
             $pdostmt = $this->pdo->prepare($sql);
 
-            # Bind the parameters with values
+            // Vinculamos variables
             $pdostmt->bindParam(':id', $id, PDO::PARAM_INT);
-            $pdostmt->bindParam(':nombre', $corredor->nombre, PDO::PARAM_STR, 30);
-            $pdostmt->bindParam(':apellidos', $corredor->apellidos, PDO::PARAM_STR, 50);
-            $pdostmt->bindParam(':ciudad', $corredor->ciudad, PDO::PARAM_STR, 30);
-            $pdostmt->bindParam(':fechaNacimiento', $corredor->fechaNacimiento);
-            $pdostmt->bindParam(':sexo', $corredor->sexo);
-            $pdostmt->bindParam(':email', $corredor->email, PDO::PARAM_STR, 128);
-            $pdostmt->bindParam(':dni', $corredor->dni, PDO::PARAM_STR, 9);
-            $pdostmt->bindParam(':id_categoria', $corredor->id_categoria, PDO::PARAM_INT);
-            $pdostmt->bindParam(':id_club', $corredor->id_club, PDO::PARAM_INT);
+            $pdostmt->bindParam(':nombre',$corredor->nombre,PDO::PARAM_STR,30);
+            $pdostmt->bindParam(':apellidos',$corredor->apellidos,PDO::PARAM_STR,50);
+            $pdostmt->bindParam(':ciudad',$corredor->ciudad,PDO::PARAM_STR,30);
+            $pdostmt->bindParam(':fechaNacimiento',$corredor->fechaNacimiento);
+            $pdostmt->bindParam(':sexo',$corredor->sexo);
+            $pdostmt->bindParam(':email',$corredor->email,PDO::PARAM_STR,50);
+            $pdostmt->bindParam(':dni',$corredor->dni,PDO::PARAM_STR,9);
+            $pdostmt->bindParam(':id_categoria',$corredor->id_categoria,PDO::PARAM_INT);
+            $pdostmt->bindParam(':id_club',$corredor->id_club,PDO::PARAM_INT);
 
-            # Execute the SQL statement
+            // Ejecutamos la consulta
             $pdostmt->execute();
 
-            # Free the PDOStatement object
+            // Liberamos recurso
             $pdostmt = null;
 
-            # Close the connection
+            // Liberamos la conexión
             $this->pdo = null;
-
         } catch (PDOException $e) {
-            include('views/partials/errorDB.php');
+            include 'views/partials/errorDB.php';
             exit();
         }
-    }
+     }
 
     public function delete_corredor($id)
     {
@@ -415,44 +412,57 @@ class Corredores extends Conexion
     public function filter($expresion)
     {
         try {
-            // Creamos sentencia
+            // Creamos la sentencia
             $sql = "SELECT 
-                corredores.id,
-                CONCAT_WS(', ',corredores.apellidos, corredores.nombre) as nombre,
-                corredores.ciudad,
-                corredores.email,
-                TIMESTAMPDIFF(YEAR,
-                    corredores.fechaNacimiento,
-                    NOW()) AS edad,
-                categorias.nombrecorto AS categoria,
-                clubs.nombreCorto AS club
-            FROM
-                maratoon.corredores
-                    INNER JOIN
-                maratoon.categorias ON categorias.id = corredores.id_categoria
-                    INNER JOIN
-                maratoon.clubs ON clubs.id = corredores.id_club
-            WHERE
-            CONCAT_WS('',corredores.apellidos, corredores.nombre,corredores.ciudad,
-            corredores.email,TIMESTAMPDIFF(YEAR,corredores.fechaNacimiento,NOW()),
-            categorias.nombrecorto,clubs.nombreCorto) LIKE :expresion";
-            
-            // Modificamos la expresión recibida como parametro
-            $expresion = "%".$expresion."%";
+            corredores.id,
+            CONCAT_WS(', ',
+                    corredores.apellidos,
+                    corredores.nombre) AS nombre,
+            corredores.ciudad,
+            corredores.email,
+            corredores.dni,
+            TIMESTAMPDIFF(YEAR,
+                corredores.fechaNacimiento,
+                NOW()) AS edad,
+            categorias.nombrecorto AS categoria,
+            clubs.nombreCorto AS club
+        FROM
+            maratoon.corredores
+                INNER JOIN
+            maratoon.categorias ON categorias.id = corredores.id_categoria
+                INNER JOIN
+            maratoon.clubs ON clubs.id = corredores.id_club
+        WHERE
+            CONCAT_WS('',
+                    corredores.id,
+                    corredores.apellidos,
+                    corredores.nombre,
+                    corredores.ciudad,
+                    corredores.email,
+                    corredores.dni,
+                    TIMESTAMPDIFF(YEAR,
+                        corredores.fechaNacimiento,
+                        NOW()),
+                    categorias.nombrecorto,
+                    clubs.nombreCorto) LIKE :expresion
+        ORDER BY id";
 
             // Preparamos la consulta
             $pdostmt = $this->pdo->prepare($sql);
-            
-            // Asignamos el valor del parametro
-            $pdostmt->bindParam(":expresion",$expresion);
-            
-            // Establecemos el tipo de fetch a usar
+
+            // Hacemos una modificación al argumento pasado
+            $expresion = "%" . $expresion . "%";
+
+            // Vinculamos variable
+            $pdostmt->bindParam(':expresion', $expresion);
+
+            // Establecer el tipo de fetch
             $pdostmt->setFetchMode(PDO::FETCH_OBJ);
-            
-            // Ejecutamos la consulta
+
+            // Ejecutamos la sentencia
             $pdostmt->execute();
-            
-            // Devolvemos el resultado de la consulta
+
+            // Devolvemos el resultado
             return $pdostmt;
         } catch (PDOException $e) {
             include 'views/partials/errorDB.php';

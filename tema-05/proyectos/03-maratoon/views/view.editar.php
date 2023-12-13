@@ -111,6 +111,8 @@
         <br>
         <br>
 
+        
+
         <!-- Pié del documento -->
         <?php include 'views/partials/footer.html' ?>
 

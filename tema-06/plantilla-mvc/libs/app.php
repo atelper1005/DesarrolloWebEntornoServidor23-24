@@ -26,7 +26,7 @@ class App {
             $controller = new Main();
             $controller->loadModel('main');
             $controller->render();
-            return false;
+            //return false;
         }
         
         $archivoController = 'controllers/' . $url[0] . '.php';

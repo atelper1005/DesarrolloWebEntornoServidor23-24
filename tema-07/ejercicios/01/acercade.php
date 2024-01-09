@@ -2,16 +2,16 @@
 
     /*
     
-        Index.php ----> Home
+        acercade.php ----> Sobre Nosotros
     
     */
 
     session_start();
 
-    if (isset($_SESSION['num_visitas_home'])) {
-        $_SESSION['num_visitas_home']++;
+    if (isset($_SESSION['num_visitas_acercade'])) {
+        $_SESSION['num_visitas_acercade']++;
     } else {
-        $_SESSION['num_visitas_home'] = 1;
+        $_SESSION['num_visitas_acercade'] = 1;
     }
 
     if (isset($_SESSION['fecha_hora_visita'])) {
@@ -42,11 +42,11 @@
 
     <h3>Detalles de la página</h3>
     <ul>
-        <li>Página: Home</li>
+        <li>Página: Sobre Nosotros</li>
         <li>SID: <?= session_id() ?></li>
         <li>Nombre Sesión: <?= session_name() ?></li>
         <li>Fecha Inicio Sesión: <?= $_SESSION['fecha_hora_visita'] ?></li>
-        <li>Visitas Home: <?= $_SESSION['num_visitas_home'] ?></li>
+        <li>Visitas Sobre Nosotros: <?= $_SESSION['num_visitas_acercade'] ?></li>
     </ul>
 </body>
 </html>

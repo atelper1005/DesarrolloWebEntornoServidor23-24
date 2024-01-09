@@ -2,16 +2,16 @@
 
     /*
     
-        Index.php ----> Home
+        eventos.php ----> Eventos
     
     */
 
     session_start();
 
-    if (isset($_SESSION['num_visitas_home'])) {
-        $_SESSION['num_visitas_home']++;
+    if (isset($_SESSION['num_visitas_eventos'])) {
+        $_SESSION['num_visitas_eventos']++;
     } else {
-        $_SESSION['num_visitas_home'] = 1;
+        $_SESSION['num_visitas_eventos'] = 1;
     }
 
     if (isset($_SESSION['fecha_hora_visita'])) {
@@ -46,7 +46,7 @@
         <li>SID: <?= session_id() ?></li>
         <li>Nombre Sesión: <?= session_name() ?></li>
         <li>Fecha Inicio Sesión: <?= $_SESSION['fecha_hora_visita'] ?></li>
-        <li>Visitas Home: <?= $_SESSION['num_visitas_home'] ?></li>
+        <li>Visitas Home: <?= $_SESSION['num_visitas_eventos'] ?></li>
     </ul>
 </body>
 </html>

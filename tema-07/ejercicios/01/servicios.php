@@ -2,16 +2,16 @@
 
     /*
     
-        Index.php ----> Home
+        servicios.php ----> Servicios
     
     */
 
     session_start();
 
-    if (isset($_SESSION['num_visitas_home'])) {
-        $_SESSION['num_visitas_home']++;
+    if (isset($_SESSION['num_visitas_servicios'])) {
+        $_SESSION['num_visitas_servicios']++;
     } else {
-        $_SESSION['num_visitas_home'] = 1;
+        $_SESSION['num_visitas_servicios'] = 1;
     }
 
     if (isset($_SESSION['fecha_hora_visita'])) {
@@ -42,11 +42,11 @@
 
     <h3>Detalles de la página</h3>
     <ul>
-        <li>Página: Home</li>
+        <li>Página: Servicios</li>
         <li>SID: <?= session_id() ?></li>
         <li>Nombre Sesión: <?= session_name() ?></li>
         <li>Fecha Inicio Sesión: <?= $_SESSION['fecha_hora_visita'] ?></li>
-        <li>Visitas Home: <?= $_SESSION['num_visitas_home'] ?></li>
+        <li>Visitas Servicios: <?= $_SESSION['num_visitas_servicios'] ?></li>
     </ul>
 </body>
 </html>

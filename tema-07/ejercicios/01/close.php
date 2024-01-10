@@ -1,44 +1,88 @@
 <?php
+
+session_name('Actividad-7.1');
 session_start();
 
-// Registramos el tiempo de inicio de la sesión si aún no lo hemos hecho
-if (!isset($_SESSION['fecha_hora_inicio'])) {
-    $_SESSION['fecha_hora_inicio'] = time();
+$visitas_totales = 0;
+
+if(isset($_SESSION['num_visitas_home'])){
+    $visitas_totales += $_SESSION['num_visitas_home'];
+}
+if(isset($_SESSION['num_visitas_servicios'])){
+    $visitas_totales += $_SESSION['num_visitas_servicios'];
+}
+if(isset($_SESSION['num_visitas_eventos'])){
+    $visitas_totales += $_SESSION['num_visitas_eventos'];
+}
+if(isset($_SESSION['num_visitas_sobre'])){
+    $visitas_totales += $_SESSION['num_visitas_sobre'];
 }
 
-// Actualizamos el contador de visitas al home
-if (isset($_SESSION['num_visitas_home'])) {
-    $_SESSION['num_visitas_home']++;
-} else {
-    $_SESSION['num_visitas_home'] = 1;
-}
+if(!isset($_SESSION['fecha_inicio_sesion'])){
+    $_SESSION['fecha_inicio_sesion'] = date("Y-m-d H:i:s");
+} 
 
-// Registramos el tiempo de finalización de la sesión
-$_SESSION['fecha_hora_fin'] = time();
+?>
 
-// Calculamos la duración de la sesión
-$_SESSION['duracion_sesion'] = $_SESSION['fecha_hora_fin'] - $_SESSION['fecha_hora_inicio'];
-
-// Desregistramos todas las variables de sesión y destruimos la sesión
-session_unset();
-session_destroy();
-
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Close Session</title>
+    <title>Actividad 7.1</title>
 </head>
+
 <body>
-    <h3>Sesión Finalizada</h3>
     <ul>
-        <li>SID de la sesión: <?= session_id() ?></li>
-        <li>Nombre de la sesión: <?= session_name() ?></li>
-        <li>Contador de visitas totales en la web: <?= $_SESSION['num_visitas_home'] ?></li>
-        <li>Fecha hora de inicio de la sesión: <?= $_SESSION['fecha_hora_inicio'] ?></li>
-        <li>Fecha hora de fin de la sesión: <?= $_SESSION['fecha_hora_fin'] ?></li>
-        <li>Duración sesión: <?= $_SESSION['duracion_sesion'] ?> segundos</li>
+        <li>
+            <a href="index.php">Home</a>
+        </li>
+        <li>
+            <a href="sobreNosotros.php">Acerca de</a>
+        </li>
+        <li>
+            <a href="servicios.php">Servicios</a>
+        </li>
+        <li>
+            <a href="eventos.php">Eventos</a>
+        </li>
+        <li>
+            <a href="close.php">Cerrar</a>
+        </li>
+    </ul>
+    <h3>Detalles de la Página</h3>
+    <ul>
+        <li>
+            Página: Cerrar
+        </li>
+        <li>
+            SID: <?= session_id() ?>
+        </li>
+        <li>
+            Nombre Sesión: <?= session_name() ?>
+        </li>
+        <li>
+            Visitas Totales: <?= $visitas_totales; ?>
+        </li>
+        <li>
+            Fecha/Hora Inicio Sesión: <?= $_SESSION['fecha_inicio_sesion'] ?>
+        </li>
+
+        <?php
+
+        $fecha_cierre_sesion = date("Y-m-d H:i:s");
+        $duracion_sesion = strtotime($fecha_cierre_sesion) - strtotime($_SESSION['fecha_inicio_sesion']);
+        session_destroy();
+
+        ?>
+        <li>
+            Fecha/Hora Fin Sesión: <?php echo $fecha_cierre_sesion ?>
+        </li>
+        <li>
+            Duración Sesión: <?= $duracion_sesion ?> segundos.
+        </li>
+
     </ul>
 </body>
 </html>

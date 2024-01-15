@@ -6,6 +6,8 @@
     
     */
 
+    session_name('Actividad-7.1');
+
     session_start();
 
     if (isset($_SESSION['num_visitas_servicios'])) {
@@ -14,11 +16,9 @@
         $_SESSION['num_visitas_servicios'] = 1;
     }
 
-    if (isset($_SESSION['fecha_hora_visita'])) {
+    if (!isset($_SESSION['fecha_hora_visita'])) {
         $_SESSION['fecha_hora_visita'] = date('Y-m-d H:i:s');
-    } else {
-        $_SESSION['fecha_hora_visita'] = date('Y-m-d H:i:s');
-    }
+    } 
 
 ?>
 

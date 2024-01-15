@@ -229,6 +229,19 @@ ORDER BY id";
         }
     }
 
+    public function delete($id) {
+        try {
+            $sql = "DELETE FROM alumnos WHERE id = :id limit 1";
+            $conexion = $this->db->connect();
+            $pdostmt = $conexion->prepare($sql);
+            $pdostmt -> bindParam(":id", $id, PDO::PARAM_INT);
+            $pdostmt -> execute();
+        } catch(PD0Exception $e) {
+            include_once('template/partials/errorDB.php');
+            exit();
+        }
+    }
+
     # Validacion email unico
     public function validateUniqueEmail($email){
         try{

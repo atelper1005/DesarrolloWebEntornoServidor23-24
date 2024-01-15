@@ -6,6 +6,8 @@
     
     */
 
+    session_name('Actividad-7.1');
+
     session_start();
 
     if (isset($_SESSION['num_visitas_eventos'])) {
@@ -14,11 +16,9 @@
         $_SESSION['num_visitas_eventos'] = 1;
     }
 
-    if (isset($_SESSION['fecha_hora_visita'])) {
+    if (!isset($_SESSION['fecha_hora_visita'])) {
         $_SESSION['fecha_hora_visita'] = date('Y-m-d H:i:s');
-    } else {
-        $_SESSION['fecha_hora_visita'] = date('Y-m-d H:i:s');
-    }
+    } 
 
 ?>
 
@@ -42,11 +42,11 @@
 
     <h3>Detalles de la página</h3>
     <ul>
-        <li>Página: Home</li>
+        <li>Página: Eventos</li>
         <li>SID: <?= session_id() ?></li>
         <li>Nombre Sesión: <?= session_name() ?></li>
         <li>Fecha Inicio Sesión: <?= $_SESSION['fecha_hora_visita'] ?></li>
-        <li>Visitas Home: <?= $_SESSION['num_visitas_eventos'] ?></li>
+        <li>Visitas Eventos: <?= $_SESSION['num_visitas_eventos'] ?></li>
     </ul>
 </body>
 </html>

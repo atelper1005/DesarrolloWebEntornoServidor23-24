@@ -8,17 +8,17 @@
     <div class="container">
 
         <!-- header -->
-        <?php include 'views/cuentas/partials/header.php' ?>
+        <?php include 'views/cuenta/partials/header.php' ?>
 
         <legend>Formulario Nueva Cuenta</legend>
 
         <!-- Formulario Nueva Cuenta -->
-        <form action="<?= URL ?>cuentas/create" method="POST">
+        <form action="<?= URL ?>cuenta/create" method="POST">
 
             <!-- numero_cuenta -->
             <div class="mb-3">
                 <label for="num_cuenta" class="form-label">Nº de la cuenta</label>
-                <input type="text" class="form-control" name="num_cuenta">
+                <input type="text" class="form-control" name="num_cuenta" maxlength="20">
             </div>
             <!-- cliente -->
             <div class="mb-3">

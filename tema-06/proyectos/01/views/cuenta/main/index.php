@@ -83,27 +83,27 @@
 								<td>
 									<?= $cuenta->fecha_ul_mov ?>
 								</td>
-								<td>
-									<?= $cuenta->num_movtos ?>
+								<td class="text-end">
+									<?= number_format($cuenta->num_movtos, 0, ',', '.') ?>
 								</td>
-								<td>
-									<?= $cuenta->saldo ?>
+								<td class="text-end">
+									<?= number_format($cuenta->saldo, 2, ',', '.') ?>
 								</td>
 								<!-- botones de acción -->
-								<td>
+								<td style="display:flex; justify-content:space-between;">
 
 									<!-- botón eliminar -->
-									<a href="<?= URL ?>cuentas/delete/<?= $cuenta->id ?>" title="Eliminar"
+									<a href="<?= URL ?>cuenta/delete<?= $cuenta->id ?>" title="Eliminar"
 										onclick="return confirm('Confirme la eliminación de la cuenta')">
 										<i class="bi bi-trash-fill"></i>
 									</a>
 
 									<!-- botón editar -->
-									<a href="<?= URL ?>cuentas/edit/<?= $cuenta->id ?>" title="Editar">
+									<a href="<?= URL ?>cuenta/edit/index<?= $cuenta->id ?>" title="Editar">
 										<i class="bi bi-pencil-square"></i></a>
 
 									<!-- botón mostrar -->
-									<a href="<?= URL ?>cuentas/show/<?= $cuenta->id ?> ?>" title="Mostrar">
+									<a href="<?= URL ?>cuenta/show/index<?= $cuenta->id ?> ?>" title="Mostrar">
 										<i class="bi bi-card-text"></i></a>
 
 								</td>

@@ -22,7 +22,7 @@
             $this->view->title = "Añadir - Gestión Cuentas";
 
             // Creamos una propiedad llamada clientes, donde almacenaremos el resultado de método getClientes del modelo cuenta
-            $this->view->clientes = $this->model->getClientes();
+            $this->view->clientes = $this->model->getClienteCuenta();
 
             // Cargamos la vista con el formulario correspondiente
             $this->view->render('cuenta/new/index');
@@ -60,7 +60,7 @@
             $this->view->cuenta = $this->model->read($id);
             
             // Creamos una propiedad llamada clientes, donde almacenaremos el resultado de método getClientes del modelo cuenta
-            $this->view->clientes = $this->model->getClientes();
+            $this->view->clientes = $this->model->getClienteCuenta();
 
             // Cargamos la vista con el formulario correspondiente
             $this->view->render('cuenta/edit/index');

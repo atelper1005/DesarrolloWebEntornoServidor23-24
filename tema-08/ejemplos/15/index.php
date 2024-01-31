@@ -1,3 +1,21 @@
+<?php
+#iniciamos la sesion
+session_start();
+
+#iniciamos los campos del formulario
+$nombre = null;
+$observaciones = null;
+$fichero = null;
+
+#Compruebo si hay algun error
+if(isset($_SESSION['error'])) {
+    $error = $_SESSION['error'];
+    $errores = $_SESSION['errores'];
+
+    //
+}
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -18,16 +36,28 @@
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Nombre</label>
                 <input type="text" name="nombre" class="form-control" id="exampleFormControlInput1" placeholder="nombre completo...">
+                <!-- error -->
+                <span class="format-text text-danger" role="alert">
+                    <?= $errores['nombre'] ??= null ?>
+                </span>
             </div>
             <!-- observaciones -->
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">Observaciones</label>
                 <textarea name="observaciones" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <!-- error -->
+                <span class="format-text text-danger" role="alert">
+                    <?= $errores['observaciones'] ??= null ?>
+                </span>
             </div>
             <!-- fichero -->
             <div class="mb-3">
                 <label for="formFile" class="form-label">Seleccione archivo</label>
                 <input type="file" class="form-control" name="fichero" id="formFile" accept="image/*">
+                <!-- error -->
+                <span class="format-text text-danger" role="alert">
+                    <?= $errores['fichero'] ??= null ?>
+                </span>
             </div>
             <!-- botones de accion -->
             <button class="btn btn-primary" type="submit">Enviar</button>

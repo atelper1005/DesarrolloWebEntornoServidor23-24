@@ -20,6 +20,8 @@
         <?php include "template/partials/error.php"?>
         <!-- Menu principal -->
         <?php require_once "views/cuentas/partials/menu.php" ?>
+          <!-- Modal -->
+          <?php require "views/cuentas/partials/modal.php" ?>
         <table class="table">
             <thead>
                 <tr>
